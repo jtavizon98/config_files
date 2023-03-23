@@ -1,0 +1,79 @@
+//# Dracula color scheme
+//colors = [
+//    ["#282a36", "#282a36"], # 0 dark grey
+//    ["#44475a", "#44475a"], # 1 grey
+//    ["#ffffff", "#ffffff"], # 2 white
+//    ["#ff5555", "#ff5555"], # 3 red
+//    ["#50fa7b", "#50fa7b"], # 4 green
+//    ["#ffb86c", "#ffb86c"], # 5 orange
+//    ["#f1fa8c", "#f1fa8c"], # 6 yellow
+//    ["#bd93f9", "#bd93f9"], # 7 purple
+//    ["#8be9fd", "#8be9fd"], # 8 cyan
+//    ["#ff79c6", "#ff79c6"]  # 9 pink
+//]
+* {
+  bg: #282a36;
+  bg-alt: #44475a;
+
+  fg: #FFFFFF;
+  fg-alt: #787c99;
+
+  background-color: @bg;
+  
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 50%;
+}
+
+element {
+  padding: 8 0;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+}
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 30;
+}
+
+entry {
+  background-color: @bg-alt;
+  padding: 12;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+listview {
+  padding: 8 12;
+  background-color: @bg;
+  columns: 1;
+  lines: 8;
+}
+
+mainbox {
+  background-color: @bg;
+  children: [inputbar, listview];
+}
+
+prompt {
+  background-color: @bg-alt;
+  enabled: true;
+  padding: 12 0 0 12;
+  text-color: @fg;
+}

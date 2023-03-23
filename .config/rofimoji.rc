@@ -1,0 +1,4 @@
+files=emojis
+prompt=Emoji
+selector=rofi
+
