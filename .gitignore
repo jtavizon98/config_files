@@ -1,0 +1,36 @@
+# ignore all hidden files
+.Mathematica/
+.Wolfram/
+.bash_history
+.bash_logout
+.cache/
+.cargo/
+.config/
+.gitconfig
+.gnupg/
+.gtkrc-2.0
+.icons/
+.lesshst
+.local/
+.lyxauth
+.maxima/
+.mozilla/
+.npm/
+.packages.txt
+.pki/
+.python_history
+.scripts/
+.vim/
+.viminfo
+.vpython-root/
+.vpython_cipd_cache/
+.zoom/
+audiofix.bak
+
+# ignore the following folders
+Desktop/
+Documents/
+Downloads/
+Pictures/
+Wolfram_Mathematica/
+
