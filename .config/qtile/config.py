@@ -14,6 +14,7 @@ from libqtile.lazy import lazy
 from libqtile.backend.wayland.inputs import InputConfig
 from libqtile.command import lazy
 #from libqtile.utils import guess_terminal
+import API_keys
 
 # === VARIABLES ===============================================================
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
@@ -396,7 +397,7 @@ def InitWidgetsList():
         widget.OpenWeather(
             background = catppuccin['sapphire'],
             foreground = catppuccin['surface0'],
-            app_key = '75d8ffc7e27122e88c1ed9dc1dedbdda',
+            app_key = API_keys.OpenWeather,
             location = location[0],
             format="{location_city}: {icon} {main_temp}°{units_temperature}",
             fmt = ' {}',

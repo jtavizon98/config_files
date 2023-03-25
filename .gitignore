@@ -33,3 +33,8 @@ Downloads/
 Pictures/
 Wolfram_Mathematica/
 
+# ignore cache folders
+.config/qtile/__pycache__/
+
+# ignore files with API keys and tokens
+.config/qtile/API_keys.py
