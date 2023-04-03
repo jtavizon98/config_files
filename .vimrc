@@ -24,6 +24,7 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 set scrolloff=10
 set signcolumn=yes
+set nowrap
 
 " Lightline
 set laststatus=2
