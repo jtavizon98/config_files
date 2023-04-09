@@ -21,7 +21,7 @@ set relativenumber
 set number
 set nohlsearch
 set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+highlight ColorColumn ctermbg=0
 set scrolloff=10
 set signcolumn=yes
 set nowrap
