@@ -1,5 +1,5 @@
 require("catppuccin").setup({
-    flavour = "mocca"
+    flavour = "mocha"
 })
 function ColorMyPencils(color) 
 	color = "catppuccin"

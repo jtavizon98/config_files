@@ -21,7 +21,7 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 10
-vim.opt.signcolumn = yes
+vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 
 -- Incremental search
@@ -32,11 +32,10 @@ vim.opt.smartcase = true
 
 -- Disable backup and swap files - they cause problems
 vim.opt.backup = false
-vim.opt.backup = false
 vim.opt.swapfile = false
 
 -- Undo fun
-vim.opt.undodir = os.getenv("HOME") .. ".vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- Open new windows in a logical order

@@ -9,8 +9,6 @@ vim.keymap.set("n", "<leader>j", ":wincmd j<CR>")
 vim.keymap.set("n", "<leader>k", ":wincmd k<CR>")
 vim.keymap.set("n", "<leader>l", ":wincmd l<CR>")
 
---vim.keymap.set("n", "<leader>u", ":UndotreeShow<CR>")
-
 vim.keymap.set("n", "<silent> <leader>=", ":vertical resize +5<CR>")
 vim.keymap.set("n", "<silent> <leader>-", ":vertical resize -5<CR>")
 vim.keymap.set("n", "<leader>s", ":split<CR>")
@@ -29,7 +27,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- persistant clipboard after paste over deletion
+-- persistent clipboard after paste over deletion
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- copying from vim to the clipboard
@@ -48,4 +46,3 @@ vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- LaTex compile with compyltex (homemade script with pdflatex, biber & latexmk) 
 vim.keymap.set("n", "<C-@>", ":w<Enter>:!compyltex %<Enter>")
 
--- autosource remaps
