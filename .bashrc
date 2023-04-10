@@ -143,3 +143,4 @@ ex ()
 # Aliases
 
 alias qinit="qtile start -b wayland"
+alias vim="nvim"
