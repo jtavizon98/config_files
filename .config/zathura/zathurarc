@@ -1,0 +1,10 @@
+set page-padding 5
+set recolor-keephue true
+set default-bg      "#1e2030"
+set recolor-lightcolor "#000000"
+set recolor-darkcolor "#cad3f5"
+set font "UbuntuMono Nerd Font 15"
+
+map i recolor
+map p print
+set recolor true
