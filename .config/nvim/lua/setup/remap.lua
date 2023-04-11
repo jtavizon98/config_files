@@ -44,5 +44,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- LaTex compile with compyltex (homemade script with pdflatex, biber & latexmk) 
-vim.keymap.set("n", "<C-@>", ":w<Enter>:!compyltex %<Enter>")
+vim.cmd([[
+autocmd FileType tex nnoremap <C-@> :w<Enter>:!compyltex %<Enter>
+]])
 
