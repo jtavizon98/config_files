@@ -35,7 +35,7 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 
 -- Undo fun
-vim.opt.undodir = "~/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- Open new windows in a logical order
