@@ -41,6 +41,7 @@ mpv
 mtools
 nano
 neofetch
+neovim
 netctl
 network-manager-applet
 networkmanager
@@ -65,6 +66,7 @@ python-pip
 python-pywlroots
 qtile
 ranger
+ripgrep
 rofimoji
 rust
 scdoc
@@ -95,7 +97,6 @@ thunar
 ttf-ubuntu-font-family
 unzip
 usbutils
-vim
 wayland-docs
 wayland-utils
 which

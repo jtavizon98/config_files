@@ -1,21 +1,20 @@
-catppuccin-gtk-theme-macchiato 0.4.3-1
-google-chrome 112.0.5615.49-1
-libfprint-tod-git 1.94.3+tod1.r2.gfbffb62e-1
-ly 0.5.3-3
-microsoft-edge-stable-bin 112.0.1722.34-1
-nerd-fonts-git 1:2.3.3.r73.g5d57dbe9a-1
-networkmanager-dispatcher-chrony 2.1-1
-networkmanager-dmenu-git r161.d1ae627-1
-nvim-packer-git r566.1d0cf98-1
-qtile-extras-git r228.c125c64-1
-rdfind 1.5.0-1
-rofi-bluetooth-git r20.893db1f-1
-rofi-lbonn-wayland-git 1.7.5.wayland1.r42.g5d4a3e14-1
-spacecadetpinball-git 2.0.1.r79.g466c875-1
-spotify 1:1.2.8.923-1
-spotify-tui 0.25.0-3
-wireplumber-docs 0.4.13-1
-wlr-randr 0.3.0-1
-wxmaxima 23.04.0-1
-yay 12.0.3-1
-zoom 5.14.2-1
+catppuccin-gtk-theme-macchiato
+google-chrome
+ly
+microsoft-edge-stable-bin
+nerd-fonts-git
+networkmanager-dispatcher-chrony
+networkmanager-dmenu-git
+nvim-packer-git
+qtile-extras-git
+rdfind
+rofi-bluetooth-git
+rofi-lbonn-wayland-git
+spacecadetpinball-git
+spotify
+spotify-tui
+wireplumber-docs
+wlr-randr
+wxmaxima
+yay
+zoom
