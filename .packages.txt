@@ -18,7 +18,6 @@ evince
 fakeroot
 firefox
 flex
-fprintd
 gcc
 geany
 git
