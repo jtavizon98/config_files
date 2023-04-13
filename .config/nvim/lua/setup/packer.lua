@@ -51,4 +51,9 @@ return require('packer').startup(function(use)
         require('orgmode').setup{}
     end
     }
+    use {'michaelb/sniprun', run = 'bash ./install.sh'}
+    
+    if packer_bootstrap then
+        packer.sync()
+    end
 end)

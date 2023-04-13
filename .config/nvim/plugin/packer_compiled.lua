@@ -166,6 +166,11 @@ _G.packer_plugins = {
     path = "/home/jairot/.local/share/nvim/site/pack/packer/start/ranger.vim",
     url = "https://github.com/francoiscabrol/ranger.vim"
   },
+  sniprun = {
+    loaded = true,
+    path = "/home/jairot/.local/share/nvim/site/pack/packer/start/sniprun",
+    url = "https://github.com/michaelb/sniprun"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/jairot/.local/share/nvim/site/pack/packer/start/telescope.nvim",
