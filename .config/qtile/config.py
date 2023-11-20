@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 
 # === IMPORTS =================================================================
 
@@ -27,7 +26,7 @@ music_player = "spotify"
 scripts = "/home/jairot/.scripts/"
 location = ["Munich, DE", "2867714"]   # for the OpenWeather widget
 #location = ["Guadalajara, MX", "4005539"]   # for the OpenWeather widget
-wallpaper_background = '/home/jairot/Pictures/Wallpapers/JWST_cosmic_cliffs.png'
+wallpaper_background = '/home/jairot/Pictures/Wallpapers/JWST_NIRcam_ring_nebula.png'
 
 xorg_flag = qtile.core.name == "x11"
 wayland_flag = qtile.core.name == "wayland"
@@ -237,14 +236,14 @@ if wayland_flag:
 
 # Groups are really Workspaces
 groups = [
-    Group(" ", layout='monadtall'),
-    Group(" ", layout='monadtall'),
+    Group("󰀘 ", layout='monadtall'),
+    Group("", layout='monadtall'),
     Group(" ", layout='monadtall'),
     Group(" ", layout='monadtall'),
     Group(" ", layout='monadtall'),
-    Group(" ", layout='monadtall'),
-    Group(" ", layout='monadtall'),
-    Group("שּ", layout='floating')
+    Group("", layout='monadtall'),
+    Group("", layout='monadtall'),
+    Group("󰙊", layout='floating')
 ]
 
 for i, workspace in enumerate(groups):
@@ -269,7 +268,7 @@ for i, workspace in enumerate(groups):
 layout_theme = {
     "border_width": 2,
     "margin": 20,
-    "border_focus": catppuccin['teal'],
+    "border_focus": catppuccin['pink'],
     "border_normal": catppuccin['base']
 }
 
@@ -399,7 +398,7 @@ def InitWidgetsList():
             foreground = catppuccin['surface0'],
             app_key = API_keys.OpenWeather,
             location = location[0],
-            format="{location_city}: {icon} {main_temp}°{units_temperature}",
+            format="{location_city}: {icon} {main_temp:.0f}°{units_temperature}",
             fmt = ' {}',
             mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(f"xdg-open https://openweathermap.org/city/{location[1]}")},
             **decorations_group
@@ -435,42 +434,51 @@ def InitWidgetsList():
             )
         )
     elif wayland_flag:
+        #widgets_list.append(
+        #    widget.Pomodoro(
+        #        background = catppuccin['red'],
+        #        color_inactive = catppuccin['surface0'],
+        #        color_active = catppuccin['surface0'],
+        #        color_break = catppuccin['surface0'],
+        #        font = "UbuntuMono Nerd Font",
+        #        fmt = " {} ",
+        #        prefix_inactive = ' ',
+        #        prefix_active = '祥 ',
+        #        prefix_paused = '  ',
+        #        prefix_break = ' ',
+        #        prefix_long_break = ' ',
+        #        #length_pomodori = 0.25,
+        #        #length_short_break = 0.25,
+        #        #length_long_break = 0.25,
+        #        **decorations_group
+        #    )
+        #)
+        #widgets_list.append(
+        #    widget.Spacer(
+        #        background="ffffff00",
+        #        length=3
+        #    )
+        #)
         widgets_list.append(
-            widget.Pomodoro(
-                background = catppuccin['red'],
-                color_inactive = catppuccin['surface0'],
-                color_active = catppuccin['surface0'],
-                color_break = catppuccin['surface0'],
-                font = "UbuntuMono Nerd Font",
-                fmt = " {} ",
-                prefix_inactive = ' ',
-                prefix_active = '祥 ',
-                prefix_paused = '  ',
-                prefix_break = ' ',
-                prefix_long_break = ' ',
-                #length_pomodori = 0.25,
-                #length_short_break = 0.25,
-                #length_long_break = 0.25,
-                **decorations_group
-            )
-        )
-        widgets_list.append(
-            widget.Spacer(
-                background="ffffff00",
-                length=3
-            )
-        )
-        widgets_list.append(
-            widget.TextBox(
-                text = "    ",
+            widget.Bluetooth(
+                #adapter_format = '[{powered} {discovery}] {name}  ',
+                #adapter_paths = [],
+                #default_text = "{connected_devices}",
+                #default_show_battery = True,
+                #device_battery_format = '{battery}%',
+                #device_format = "[{symbol}] {name} {battery_level}",
+                #symbol_connected = "󰂱",
+                #symbol_paired = "-",
+                #symbol_powered = ('󰂯', '󰂲'),
+                fmt = " 󰂯 {} ",
+                hci = "/dev_14_3F_A6_67_4E_88", #/org/bluez/hci0/dev_
                 font = "UbuntuMono Nerd Font",
                 foreground = catppuccin['surface0'],
                 background = catppuccin['sky'],
                 padding = 0,
                 mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("rofi-bluetooth")},
-                fontsize = 24,
                 **decorations_group
-            )
+                )
         )
         widgets_list.append(
             widget.Spacer(
@@ -509,24 +517,11 @@ def InitWidgetsList():
             length=3
         )
     )
-
-    widgets_list.append(
-        widget.TextBox(
-            text = "  ",
-            font = "UbuntuMono Nerd Font",
-            foreground = catppuccin['surface0'],
-            background = catppuccin['maroon'],
-            padding = 5,
-            fontsize = 24,
-            **decorations_group
-        )
-    )
     widgets_list.append(
         widget.KeyboardLayout(
             configured_keyboards= ['us', 'latam', 'de'],
-            #configured_keyboards= ['us', 'latam'],
             display_map = {'us': 'US', 'latam': 'ES', 'de': 'DE'},
-            fmt = '{} ',
+            fmt = ' 󰌌  {} ',
             foreground = catppuccin['surface0'],
             background = catppuccin['maroon'],
             padding = 5,
