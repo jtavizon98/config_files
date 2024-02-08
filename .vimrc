@@ -1,4 +1,5 @@
 " My .vimrc Jairo Tavizon
+" barebones for use in ssh connections when absolutely necessary
 
 " Automatic Reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -52,11 +53,6 @@ set splitbelow splitright
 " Using vim-plug ---------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-" Dracula theme from https://draculatheme.com/
-"Plug 'dracula/vim',{'as':'dracula'}
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-
 " Catppuccin theme
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
@@ -64,14 +60,8 @@ Plug 'itchyny/lightline.vim'
 " Undo history of that file
 Plug 'mbbill/undotree'
 
-" Ranger inside vim
-Plug 'francoiscabrol/ranger.vim'
-
 " Syntax highlighting for many languages
 Plug 'sheerun/vim-polyglot'
-
-" Autocompletion and linting for several languages 
-Plug 'neoclide/coc.nvim', {'branch':'release'} 
 
 " Creates automatic pairs for (, [, {, "
 Plug 'jiangmiao/auto-pairs'
@@ -79,94 +69,11 @@ Plug 'jiangmiao/auto-pairs'
 " Shows indentation lines
 Plug 'Yggdroot/indentLine'
 
-" Vimtex for LaTex support
-Plug 'lervag/vimtex'
-
 call plug#end()
 "-------------------------------------------------------------------------------
 
 colorscheme catppuccin_macchiato
 let g:lightline = {'colorscheme': 'catppuccin_mocha'}
-
-" Coc setup --------------------------------------------------------------------
-
- let g:coc_global_extensions = [
-    \ 'coc-jedi',
-    \ 'coc-texlab',
-    \ 'coc-ltex',
-    \ 'coc-sh',
-    \]
-
-" Use <tab> and <S-tab> to navigate completion list: >
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-" Insert <tab> when previous text is space, refresh completion if not.
-inoremap <silent><expr> <TAB>
-  \ coc#pum#visible() ? coc#pum#next(1):
-  \ <SID>check_back_space() ? "\<Tab>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-
-" Use <c-space> to trigger completion.
-"inoremap <silent><expr> <c-@> coc#refresh()
-
-" Use <CR> to confirm completion, use: >
-inoremap <expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Explorer
-let g:coc_explorer_global_presets = {
-\   'floating': {
-\      'position': 'floating',
-\   },
-\   'floatingLeftside': {
-\      'position': 'floating',
-\      'floating-position': 'left-center',
-\      'floating-width': 30,
-\   },
-\   'floatingRightside': {
-\      'position': 'floating',
-\      'floating-position': 'right-center',
-\      'floating-width': 30,
-\   },
-\   'simplify': {
-\     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   }
-\ }
-"nmap <silent> <space>e :CocCommand explorer<CR>
-" nnoremap <silent> <leader>e :CocCommand explorer<CR>
-" nmap <space>f :CocCommand explorer --preset floatingRightside<CR>
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-
-" LaTex integration ----------------------------------------------------------
-
-let g:coc_filetype_map = {'tex': 'latex'}
-
-"-------------------------------------------------------------------------------
 
 " Automatically install missing plugins on startup
 autocmd VimEnter *
@@ -201,7 +108,4 @@ nmap <C-n><C-n> :set invrelativenumber<CR>
 
 " copying from vim to the clipboard
 vnoremap <C-y> "+y
-map <C-p> "+P
-
-" LaTex compile with compyltex (homemade script with pdflatex, biber & latexmk) 
-autocmd FileType tex nnoremap <C-@> :w<Enter>:!compyltex %<Enter>
+map <C-p> "+PDelete .config/nvim/lua/setup directory
