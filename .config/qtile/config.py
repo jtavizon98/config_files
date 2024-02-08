@@ -66,7 +66,7 @@ catppuccin = {
 # === FUNCTIONS ===============================================================
 
 
-def WindowToPrevGroup(Qtile):
+def WindowToPrevGroup(qtile):
     if qtile.currentWindow is not None:
         i = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[i - 1].name)
@@ -441,7 +441,7 @@ def InitWidgetsList():
         ),
         widget.GroupBox(
             font="UbuntuMono Nerd Font",
-            fontsize=20,
+            fontsize=22,
             margin_y=3,
             margin_x=0,
             padding_y=5,
@@ -553,23 +553,16 @@ def InitWidgetsList():
         #    )
         # )
         widgets_list.append(
-            # widget.Bluetooth(
-            #     # adapter_format = '[{powered} {discovery}] {name}  ',
-            #     # adapter_paths = [],
-            #     # default_text = "{connected_devices}",
-            #     # default_show_battery = True,
-            #     # device_battery_format = '{battery}%',
-            #     # device_format = "[{symbol}] {name} {battery_level}",
-            #     # symbol_connected = "󰂱",
-            #     # symbol_paired = "-",
-            #     # symbol_powered = ('󰂯', '󰂲'),
-            #     fmt=" 󰂯 {} ",
-            #     hci="/dev_14_3F_A6_67_4E_88",  # /org/bluez/hci0/dev_
-            widget.TextBox(
-                text=" 󰂯 ",
-                padding=5,
-                fontsize=18,
-                font="UbuntuMono Nerd Font",
+            widget.Bluetooth(
+                adapter_format=" {powered} {discovery} {name}   ",
+                adapter_paths=[],
+                default_text=" 󰂯 {connected_devices} ",
+                default_show_battery=True,
+                device_battery_format=" {battery}%",
+                device_format=" {symbol} {name} {battery_level} ",
+                symbol_connected="󰂱",
+                symbol_paired="-",
+                symbol_powered=("󰂯", "󰂲"),
                 foreground=catppuccin["surface0"],
                 background=catppuccin["sky"],
                 mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("rofi-bluetooth")},
@@ -581,9 +574,9 @@ def InitWidgetsList():
             widget.Wlan(
                 background=catppuccin["lavander"],
                 foreground=catppuccin["surface0"],
-                format=" 󰖩 ",
+                format=" 󰖩  ",
                 disconnected_message=" 󰖪  ",
-                interface="wlp2s0",
+                interface="wlp0s20f3",
                 update_interval=5,
                 mouse_callbacks={
                     "Button1": lambda: qtile.cmd_spawn("networkmanager_dmenu")
