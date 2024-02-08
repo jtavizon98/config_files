@@ -1,1 +1,2 @@
-require("setup")
+require("jtavizon.core")
+require("jtavizon.lazy")
