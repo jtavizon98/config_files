@@ -5,9 +5,10 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 export PATH="${PATH}:/home/jairot/.scripts"
-export GTK_THEME=Catppuccin-Macchiato-Standard-Blue-Dark
+export GTK_THEME=catppuccin-macchiato-pink-standard+default
 
 # Firefox Wayland support
-if [ "$XDG_SESSION_TYPE" == "wayland"  ]; then
-        export MOZ_ENABLE_WAYLAND=1
-fi
+export MOZ_ENABLE_WAYLAND=1
+
+# ranger :terminal command
+export TERMCMD=alacritty

@@ -75,7 +75,7 @@
 lines.linewidth: 1.5 #0.8               # line width in points
 #lines.linestyle: -                 # solid line
 #lines.color:     C0                # has no affect on plot(); see axes.prop_cycle
-lines.marker:          ^            # the default marker
+lines.marker:          .            # the default marker
 lines.markerfacecolor: white        # the default marker face color
 #lines.markeredgecolor: auto        # the default marker edge color
 lines.markeredgewidth: 0.5 # 1     # the line width around the marker symbol
@@ -255,7 +255,7 @@ text.usetex: True    # use latex for all text handling. The following fonts
                      # If another font is desired which can loaded using the
                      # LaTeX \usepackage command, please inquire at the
                      # Matplotlib mailing list
-text.latex.preamble: \usepackage[utf8]{inputenc}\usepackage{amsmath,siunitx}\sisetup{locale=US, separate-uncertainty=true}\usepackage{upgreek}
+text.latex.preamble: \usepackage[utf8]{inputenc}\usepackage{physics,siunitx}\sisetup{locale=US, separate-uncertainty=true}\usepackage{upgreek}
                         # IMPROPER USE OF THIS FEATURE WILL LEAD TO LATEX FAILURES
                         # AND IS THEREFORE UNSUPPORTED. PLEASE DO NOT ASK FOR HELP
                         # IF THIS FEATURE DOES NOT DO WHAT YOU EXPECT IT TO.
@@ -330,12 +330,12 @@ axes.grid:          True # display grid or not
 #axes.grid.axis:     both    # which axis the grid should apply to
 #axes.grid.which:    major   # grid lines at {major, minor, both} ticks
 #axes.titlelocation: center  # alignment of the title: {left, right, center}
-#axes.titlesize:     large   # font size of the axes title
+axes.titlesize:     medium   # font size of the axes title
 #axes.titleweight:   normal  # font weight of title
 #axes.titlecolor:    auto    # color of the axes title, auto falls back to
                              # text.color as default value
 #axes.titley:        None    # position title (axes relative units).  None implies auto
-axes.titlepad:      10.0     # pad between axes and title in points
+axes.titlepad:      6.0     # pad between axes and title in points
 #axes.labelsize:     medium  # font size of the x and y labels
 #axes.labelpad:      4.0     # space between label and axis
 #axes.labelweight:   normal  # weight of the x and y labels
