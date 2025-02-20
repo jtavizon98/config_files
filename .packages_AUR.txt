@@ -1,0 +1,16 @@
+catppuccin-gtk-theme-macchiato
+google-chrome
+libfprint-tod-git
+libpdfium-nojs
+networkmanager-dispatcher-chrony
+networkmanager-dmenu-git
+paru
+qtile-extras-git
+rofi-bluetooth-git
+rofi-lbonn-wayland-git
+spacecadetpinball-git
+spotify
+spotify-tui
+wlr-randr
+wxmaxima
+zoom

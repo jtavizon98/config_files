@@ -1,0 +1,22 @@
+configuration {
+    modi: "run,drun";
+    font: "UbuntuMono Nerd Font 14";
+    show-icons: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: " 﩯  Window";
+    display-Network: " 直  Network";
+    display-emoji: "   Emoji";
+	drun-display-format: "{icon} {name}";
+    sidebar-mode: true;
+	ml-row-left: "ScrollLeft";
+	ml-row-right: "ScrollRight";
+	ml-row-up: "ScrollUp";
+	ml-row-down: "ScrollDown";
+	me-select-entry: "MousePrimary";
+	me-accept-entry: "MouseDPrimary";
+	me-accept-custom: "Control+MouseDPrimary";
+}
+
+
+@theme "/home/jairot/.local/share/rofi/themes/catppuccin-latte.rasi"
