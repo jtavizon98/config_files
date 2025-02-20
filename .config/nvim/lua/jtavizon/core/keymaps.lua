@@ -1,5 +1,5 @@
 -- Rebind <Leader> key
-vim.g.mapleader = " " 
+vim.g.mapleader = " "
 
 -- Basic navigation keybindings
 vim.keymap.set("n", "<leader>q", ":q<CR>")
@@ -11,8 +11,8 @@ vim.keymap.set("n", "<leader>l", ":wincmd l<CR>")
 
 vim.keymap.set("n", "<silent> <leader>=", ":vertical resize +5<CR>")
 vim.keymap.set("n", "<silent> <leader>-", ":vertical resize -5<CR>")
-vim.keymap.set("n", "<leader>s", ":split<CR>")
-vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>\\", ":split<CR>")
+vim.keymap.set("n", "<leader>|", ":vsplit<CR>")
 
 -- easier moving of code blocks
 vim.keymap.set("v", "<", "<gv")
@@ -31,11 +31,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- copying from vim to the clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- delete to void register
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- For visual block mode editing
 vim.keymap.set("i", "<C-c>", "<Esc>")

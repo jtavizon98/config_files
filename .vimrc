@@ -1,5 +1,4 @@
 " My .vimrc Jairo Tavizon
-" barebones for use in ssh connections when absolutely necessary
 
 " Automatic Reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -24,7 +23,6 @@ set nohlsearch
 set colorcolumn=80
 highlight ColorColumn ctermbg=0
 set scrolloff=10
-set signcolumn=yes
 set nowrap
 
 " Lightline
@@ -47,40 +45,6 @@ set noswapfile
 
 " Open new windows in a logical order
 set splitbelow splitright
-
-" Plugins ======================================================================
-
-" Using vim-plug ---------------------------------------------------------------
-call plug#begin('~/.vim/plugged')
-
-" Catppuccin theme
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'itchyny/lightline.vim'
-
-" Undo history of that file
-Plug 'mbbill/undotree'
-
-" Syntax highlighting for many languages
-Plug 'sheerun/vim-polyglot'
-
-" Creates automatic pairs for (, [, {, "
-Plug 'jiangmiao/auto-pairs'
-
-" Shows indentation lines
-Plug 'Yggdroot/indentLine'
-
-call plug#end()
-"-------------------------------------------------------------------------------
-
-colorscheme catppuccin_macchiato
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
-
-" Automatically install missing plugins on startup
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
-
 
 " Keybindings ==================================================================
 
@@ -107,5 +71,5 @@ vnoremap > >gv
 nmap <C-n><C-n> :set invrelativenumber<CR>
 
 " copying from vim to the clipboard
-vnoremap <C-y> "+y
-map <C-p> "+PDelete .config/nvim/lua/setup directory
+vnoremap <leader>y "+y
+map <C-p> "+P
