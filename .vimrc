@@ -63,11 +63,6 @@ nnoremap <silent> <leader>- :vertical resize -5<CR>
 nnoremap <leader>s :split<CR>
 nnoremap <leader>vs :vsplit<CR>
 
-" NERDTree
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <leader>nt :NERDTreeToggle<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
-
 " easier moving of code blocks
 vnoremap < <gv
 vnoremap > >gv
