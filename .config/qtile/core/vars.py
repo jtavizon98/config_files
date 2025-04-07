@@ -12,8 +12,8 @@ music_player = "spotify"
 
 script_path = "$HOME/.scripts/"
 
+# location = ["Example City", "0000000"]  # for the OpenWeather widget
 location = ["Example City", "0000000"]  # for the OpenWeather widget
-# location = ["Example City", "0000000"]   # for the OpenWeather widget
 
 wallpaper_background = (
     "$HOME/Pictures/Wallpapers/wallpaper.png"
