@@ -10,6 +10,6 @@ def init_groups():
         Group(" ", layout="monadtall"),
         Group("󰈰", layout="monadtall"),
         Group("󰎈", layout="monadtall"),
-        Group("󰙊 ", layout="floating"),
+        Group("󰙊 ", layout="monadtall"),
     ]
     return groups

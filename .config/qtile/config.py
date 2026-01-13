@@ -1,8 +1,7 @@
 import os
 import subprocess
 
-# from libqtile.utils import guess_terminal
-from libqtile import bar, hook, layout, qtile
+from libqtile import bar, hook, qtile
 from libqtile.config import Match, Screen
 
 from core.colors import catppuccin
@@ -11,6 +10,7 @@ from core.keys import init_keys
 from core.mouse import init_mouse
 from core.vars import bar_font_size, wallpaper_background
 from core.widgets import init_widgets
+from core.layouts import init_layouts
 
 xorg_flag = qtile.core.name == "x11"
 wayland_flag = qtile.core.name == "wayland"
@@ -25,17 +25,7 @@ widget_defaults = {
     "background": catppuccin["red"],
 }
 
-layout_theme = {
-    "border_width": 2,
-    "margin": 20,
-    "border_focus": catppuccin["pink"],
-    "border_normal": catppuccin["base"],
-}
-layouts = [
-    layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
-    layout.Floating(**layout_theme),
-]
+layouts, floating_layout = init_layouts()
 
 
 def init_screens():
@@ -62,27 +52,27 @@ if __name__ in ["config", "__main__"]:
 mouse, wl_input_rules = init_mouse(wayland=wayland_flag)
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []
 follow_mouse_focus = True
 bring_front_click = True
 cursor_warp = False
 
-floating_layout = layout.Floating(
-    float_rules=[
-        # Run the utility of `xprop` to see the wm class and name of an X client.
-        *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
-    ]
-)
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
+
+from libqtile import hook
+
+@hook.subscribe.client_new
+def force_popup_focus(window):
+    # If it's a Zen window with no name (the 'Replace' prompt)
+    if window.get_wm_class() and "zen" in window.get_wm_class():
+        if not window.name or window.name == "":
+            # Force it to be floating, topmost, and focused
+            window.floating = True
+            window.cmd_bring_to_front()
+            window.cmd_focus()
 
 @hook.subscribe.startup_once
 def start_once(wayland=True):
@@ -97,6 +87,8 @@ def start_once(wayland=True):
                 'xinput set-prop "VEN_04F3:00 04F3:3242 Touchpad" "libinput Natural Scrolling Enabled" 1',
             ]
         )
+    else:
+        command.extend(["/usr/lib/hyprpolkitagent/hyprpolkitagent"])
     command = [line + " & " for line in command]
     command_str = "".join(command)
     subprocess.Popen(

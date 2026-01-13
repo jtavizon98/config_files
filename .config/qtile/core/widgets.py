@@ -26,7 +26,7 @@ def init_widgets():
             background=catppuccin["blue"],
             foreground=catppuccin["surface0"],
             padding=5,
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(launcher)},
+            mouse_callbacks={"Button1": lambda: qtile.spawn(launcher)},
             fontsize=20,
             **decorations_group,
         ),
@@ -93,10 +93,10 @@ def init_widgets():
             foreground=catppuccin["surface0"],
             app_key=api_keys.open_weather,
             location=location[0],
-            format="{location_city}: {icon} {main_temp:.0f}°{units_temperature}",
+            # format="{location_city}: {icon} {main_temp:.0f}°{units_temperature}",
             fmt=" {}",
             mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn(
+                "Button1": lambda: qtile.spawn(
                     f"xdg-open https://openweathermap.org/city/{location[1]}"
                 )
             },
@@ -116,7 +116,7 @@ def init_widgets():
             foreground=catppuccin["surface0"],
             format="  %H:%M  %a %d.%m.%Y ",
             mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn(
+                "Button1": lambda: qtile.spawn(
                     f"xdg-open https://calendar.google.com"
                 )
             },
@@ -153,7 +153,7 @@ def init_widgets():
             symbol_powered=("󰂯", "󰂲"),
             foreground=catppuccin["surface0"],
             background=catppuccin["sky"],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("rofi-bluetooth")},
+            mouse_callbacks={"Button1": lambda: qtile.spawn("rofi-bluetooth")},
             **decorations_group,
         ),
         widget.Spacer(background="ffffff00", length=3),
@@ -165,7 +165,7 @@ def init_widgets():
             interface="wlp0s20f3",
             update_interval=5,
             mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn("networkmanager_dmenu")
+                "Button1": lambda: qtile.spawn("networkmanager_dmenu")
             },
             **decorations_group,
         ),
@@ -175,10 +175,10 @@ def init_widgets():
             fmt="{} ",
             format="{percent:2.0%}",
             disconnected_message="",
-            interface="wlp2s0",
+            interface="wlp0s20f3",
             update_interval=5,
             mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn("networkmanager_dmenu")
+                "Button1": lambda: qtile.spawn("networkmanager_dmenu")
             },
             **decorations_group,
         ),
@@ -216,7 +216,7 @@ def init_widgets():
             foreground=catppuccin["red"],
             background=catppuccin["crust"],
             mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn(
+                "Button1": lambda: qtile.spawn(
                     f"bash {script_path}powermenu/type-1/powermenu.sh"
                 )
             },
