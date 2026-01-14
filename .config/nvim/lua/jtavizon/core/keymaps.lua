@@ -1,5 +1,6 @@
 -- Rebind <Leader> key
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Basic navigation keybindings
 vim.keymap.set("n", "<leader>q", ":q<CR>")
@@ -27,15 +28,15 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- persistent clipboard after paste over deletion
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- Persistent clipboard after Paste over deletion
+vim.keymap.set("x", "<leader>P", [["_dP]])
 
 -- copying from vim to the clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- delete to void register
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+-- eXterminate: delete to void register
+vim.keymap.set({ "n", "v" }, "<leader>x", [["_d]])
 
 -- For visual block mode editing
 vim.keymap.set("i", "<C-c>", "<Esc>")
