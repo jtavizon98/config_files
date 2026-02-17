@@ -1,75 +1,196 @@
-" My .vimrc Jairo Tavizon
+" ==============================================================================
+" Minimal Portable .vimrc
+" Drop this on any server - no plugins required
+" Keybinds match nvim config for muscle memory
+" ==============================================================================
 
-" Automatic Reloading of .vimrc
+" Automatic Reloading
 autocmd! bufwritepost .vimrc source %
 
-" Sets =========================================================================
+" ------------------------------------------------------------------------------
+" Basic Settings
+" ------------------------------------------------------------------------------
+set nocompatible
+filetype plugin indent on
+syntax enable
 
-" Mouse functionality
-set mouse=a
-
-" Real programmers dont't use TABs but spaces
-set tabstop=4 softtabstop=4
-set expandtab
+" Tabs and indentation
+set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set shiftround
-
-" Makin' it pretty 
-syntax enable
+set expandtab
 set smartindent
-set relativenumber
+
+" UI
 set number
-set nohlsearch
+set relativenumber
+set nowrap
+set scrolloff=10
 set colorcolumn=80
 highlight ColorColumn ctermbg=0
-set scrolloff=10
-set nowrap
-
-" Lightline
+set cursorline
+set showcmd
+set wildmenu
 set laststatus=2
 
-" Undo fun
-set undodir=~/.vim/undodir
-set undofile
-
-" Make search case insensitive
+" Search
 set ignorecase
+set smartcase
 set incsearch
 set hlsearch
-set smartcase
 
-" Disable backup and swap files - they cause problems
+" Files
 set nobackup
 set nowritebackup
 set noswapfile
+set undofile
+set undodir=~/.vim/undodir
 
-" Open new windows in a logical order
-set splitbelow splitright
+" Splits
+set splitbelow
+set splitright
 
-" Keybindings ==================================================================
+" Performance
+set updatetime=50
+set timeoutlen=500
 
-" Rebind <Leader> key
+" Mouse
+set mouse=a
+
+" Allow hidden buffers
+set hidden
+
+" Better command line completion
+set wildmode=list:longest
+
+" Terminal colors
+if has('termguicolors')
+    set termguicolors
+endif
+
+" ------------------------------------------------------------------------------
+" Leader Key
+" ------------------------------------------------------------------------------
 let mapleader = " "
+let maplocalleader = " "
 
-" Basic navigation keybindings
+" ------------------------------------------------------------------------------
+" Window Navigation (matches nvim config)
+" ------------------------------------------------------------------------------
 nnoremap <leader>q :q<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>u :UndotreeShow<CR>
+
+" Window resizing
 nnoremap <silent> <leader>= :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
-nnoremap <leader>s :split<CR>
-nnoremap <leader>vs :vsplit<CR>
+nnoremap <leader>\ :split<CR>
+nnoremap <leader><bar> :vsplit<CR>
 
-" easier moving of code blocks
+" Save
+nnoremap <leader>w :w<CR>
+
+" ------------------------------------------------------------------------------
+" Visual Mode (matches nvim config)
+" ------------------------------------------------------------------------------
+" Keep visual mode when indenting
 vnoremap < <gv
 vnoremap > >gv
+
+" Move lines up/down in visual mode
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" ------------------------------------------------------------------------------
+" Scrolling (keep centered - matches nvim config)
+" ------------------------------------------------------------------------------
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" ------------------------------------------------------------------------------
+" Clipboard (matches nvim config)
+" ------------------------------------------------------------------------------
+" Paste without yanking replaced text
+xnoremap <leader>P "_dP
+
+" Yank to system clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+
+" Delete to void register
+nnoremap <leader>x "_d
+vnoremap <leader>x "_d
+
+" Quick paste from system clipboard
+nnoremap <C-p> "+P
+
+" ------------------------------------------------------------------------------
+" Editing Convenience (matches nvim config)
+" ------------------------------------------------------------------------------
+" Exit insert mode with Ctrl-C
+inoremap <C-c> <Esc>
+
+" Replace word under cursor
+nnoremap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+" Clear search highlighting
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Toggle relative line number
 nmap <C-n><C-n> :set invrelativenumber<CR>
 
-" copying from vim to the clipboard
-vnoremap <leader>y "+y
-map <C-p> "+P
+" ------------------------------------------------------------------------------
+" Buffer Navigation
+" ------------------------------------------------------------------------------
+nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bp :bprevious<CR>
+nnoremap <leader>bd :bdelete<CR>
+nnoremap <leader>bl :buffers<CR>
+
+" ------------------------------------------------------------------------------
+" Quick Navigation
+" ------------------------------------------------------------------------------
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
+
+" ------------------------------------------------------------------------------
+" File Explorer (netrw - built-in)
+" ------------------------------------------------------------------------------
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+nnoremap <leader>ee :Lexplore<CR>
+nnoremap <leader>ef :Lexplore %:p:h<CR>
+
+" ------------------------------------------------------------------------------
+" Quick Edit vimrc
+" ------------------------------------------------------------------------------
+nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" ------------------------------------------------------------------------------
+" Create undodir if it doesn't exist
+" ------------------------------------------------------------------------------
+if !isdirectory(&undodir)
+    call mkdir(&undodir, 'p')
+endif
+
+" ------------------------------------------------------------------------------
+" Status Line (minimal)
+" ------------------------------------------------------------------------------
+set statusline=
+set statusline+=%f
+set statusline+=%m
+set statusline+=%r
+set statusline+=%=
+set statusline+=%y
+set statusline+=\ %l:%c
+set statusline+=\ %p%%
