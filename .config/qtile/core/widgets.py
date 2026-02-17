@@ -93,7 +93,7 @@ def init_widgets():
             foreground=catppuccin["surface0"],
             app_key=api_keys.open_weather,
             location=location[0],
-            # format="{location_city}: {icon} {main_temp:.0f}°{units_temperature}",
+            format="{icon} {location_city} {main_temp:.0f}°{units_temperature}",
             fmt=" {}",
             mouse_callbacks={
                 "Button1": lambda: qtile.spawn(
@@ -116,9 +116,7 @@ def init_widgets():
             foreground=catppuccin["surface0"],
             format="  %H:%M  %a %d.%m.%Y ",
             mouse_callbacks={
-                "Button1": lambda: qtile.spawn(
-                    f"xdg-open https://calendar.google.com"
-                )
+                "Button1": lambda: qtile.spawn(f"xdg-open https://calendar.google.com")
             },
             **decorations_group,
         ),
@@ -164,9 +162,7 @@ def init_widgets():
             disconnected_message=" 󰖪  ",
             interface="wlan0",
             update_interval=5,
-            mouse_callbacks={
-                "Button1": lambda: qtile.spawn("networkmanager_dmenu")
-            },
+            mouse_callbacks={"Button1": lambda: qtile.spawn("networkmanager_dmenu")},
             **decorations_group,
         ),
         widget.Wlan(
@@ -177,9 +173,7 @@ def init_widgets():
             disconnected_message="",
             interface="wlan0",
             update_interval=5,
-            mouse_callbacks={
-                "Button1": lambda: qtile.spawn("networkmanager_dmenu")
-            },
+            mouse_callbacks={"Button1": lambda: qtile.spawn("networkmanager_dmenu")},
             **decorations_group,
         ),
         widget.Spacer(background="ffffff00", length=3),

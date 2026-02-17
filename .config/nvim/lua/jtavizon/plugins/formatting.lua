@@ -14,11 +14,13 @@ return {
                 python = { "isort", "black" },
                 latex = { "latexindent" },
             },
-            format_on_save = {
-                lsp_fallback = true,
-                async = false,
-                timeout_ms = 1000,
-            },
+            format_on_save = function(bufnr)
+                local exclude_filetypes = { "help", "alpha", "dashboard", "lazy", "mason" }
+                if vim.tbl_contains(exclude_filetypes, vim.bo[bufnr].filetype) then
+                    return
+                end
+                return { timeout_ms = 1000, lsp_fallback = true }
+            end,
         })
 
         vim.keymap.set({ "n", "v" }, "<leader>mp", function()

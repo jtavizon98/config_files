@@ -1,16 +1,10 @@
 return {
     "williamboman/mason.nvim",
     dependencies = {
-        "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
-        -- import mason
         local mason = require("mason")
-
-        -- import mason-lspconfig
-        local mason_lspconfig = require("mason-lspconfig")
-
         local mason_tool_installer = require("mason-tool-installer")
 
         -- enable mason and configure icons
@@ -24,28 +18,24 @@ return {
             },
         })
 
-        mason_lspconfig.setup({
-            -- list of servers for mason to install
-            ensure_installed = {
-                "bashls",
-                "clangd",
-                "ltex",
-                "texlab",
-                "lua_ls",
-                "pylsp",
-            },
-            -- auto-install configured servers (with lspconfig)
-            automatic_installation = true, -- not the same as ensure_installed
-        })
-
+        -- Install LSP servers and tools
+        -- Note: With pure native LSP, we install servers via mason-tool-installer
         mason_tool_installer.setup({
             ensure_installed = {
-                "prettier", -- prettier formatter
-                "stylua", -- lua formatter
-                "isort", -- python formatter
-                "black", -- python formatter
-                "pylint", -- python linter
-                "latexindent", -- LaTeX formatter
+                -- LSP servers
+                "bash-language-server",
+                "clangd",
+                "ltex-ls",
+                "texlab",
+                "lua-language-server",
+                "python-lsp-server",
+                -- Formatters and linters
+                "prettier",
+                "stylua",
+                "isort",
+                "black",
+                "pylint",
+                "latexindent",
             },
         })
     end,

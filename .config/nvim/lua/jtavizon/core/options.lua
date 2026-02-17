@@ -4,7 +4,7 @@ vim.opt.guicursor = ""
 -- Mouse functionality
 vim.opt.mouse = "a"
 
--- Real programmers dont't use TABs but spaces
+-- Real programmers don't use TABs but spaces
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
@@ -39,4 +39,8 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.updatetime = 50
+
+-- Disable netrw for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 

@@ -4,13 +4,13 @@ return {
   config = function()
     local nvimtree = require("nvim-tree")
 
-    -- recommended settings from nvim-tree documentation
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-
     -- change color for arrows in tree to light blue
-    vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#3FC5FF ]])
-    vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = function()
+        vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#3FC5FF ]])
+        vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
+      end,
+    })
 
     -- configure nvim-tree
     nvimtree.setup({

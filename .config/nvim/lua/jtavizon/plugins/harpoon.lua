@@ -31,7 +31,7 @@ return {
 
 		vim.keymap.set("n", "<leader>a", function()
 			harpoon:list():add()
-		end)
+		end, { desc = "Add file to harpoon" })
 
 		vim.keymap.set("n", "<leader>fh", function()
 			toggle_telescope(harpoon:list())
@@ -39,6 +39,6 @@ return {
 
 		vim.keymap.set("n", "<leader>hh", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
-		end)
+		end, { desc = "Open harpoon quick menu" })
 	end,
 }

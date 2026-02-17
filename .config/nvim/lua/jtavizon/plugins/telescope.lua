@@ -1,9 +1,10 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
+	event = "VimEnter",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = function() return vim.fn.executable("make") == 1 end },
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
@@ -12,7 +13,7 @@ return {
 
 		telescope.setup({
 			defaults = {
-				path_display = { "truncate " },
+				path_display = { "truncate" },
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
