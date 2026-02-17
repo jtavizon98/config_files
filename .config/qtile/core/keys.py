@@ -28,18 +28,11 @@ _wayland_keys = [
     Key(
         ["mod1", "control"],
         "l",
-        lazy.spawn("swaylock -f -k -l --color 181226f0 --font 'UbuntuMono Nerd Font'"),
+        lazy.spawn("hyprlock"),
         desc="Lock Screen",
     ),
 ]
 _xorg_keys = [
-    # Toggle TouchPad
-    Key(
-        ["mod1", "control"],
-        "t",
-        lazy.spawn("toggle-touchpad.py"),
-        desc="Toggle touchpad on and off",
-    ),
     # Lock screen
     Key(
         ["mod1", "control"],
@@ -335,6 +328,13 @@ def init_keys(groups, wayland=True):
             "t",
             lazy.spawn("toggle_colors"),
             desc="Toggle light and dark theme",
+        ),
+        # Toggle TouchPad
+        Key(
+            [mod, "control"],
+            "t",
+            lazy.spawn("toggle-touchpad.py"),
+            desc="Toggle touchpad on and off",
         ),
     ]
     _extend_keys(keys, groups, wayland=wayland)
