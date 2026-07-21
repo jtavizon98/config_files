@@ -192,6 +192,24 @@ def init_keys(groups, wayland=True):
         Key([mod], "w", lazy.spawn(browser), desc="Launch browser"),
         Key([mod], "e", lazy.spawn(file_manager), desc="Launch file manager"),
         Key([mod], "f", lazy.spawn("thunar"), desc="Launch graphical file manager"),
+        Key(
+            [mod],
+            "t",
+            lazy.spawn(
+                f"{terminal} -e bash -lc 'tzync copy; status=$?; "
+                'read -rp "Press Enter to close..."; exit "$status"\''
+            ),
+            desc="Copy selected tzync profiles",
+        ),
+        Key(
+            [mod, "shift"],
+            "t",
+            lazy.spawn(
+                f"{terminal} -e bash -lc 'tzync sync; status=$?; "
+                'read -rp "Press Enter to close..."; exit "$status"\''
+            ),
+            desc="Sync selected tzync profiles",
+        ),
         Key([mod, "shift"], "m", lazy.spawn(music_player), desc="Launch music player"),
         Key([mod], "p", lazy.spawn(launcher), desc="Run Launcher"),
         Key([mod], "b", lazy.spawn("rofi-bluetooth"), desc="Launch bluetooth manager"),
