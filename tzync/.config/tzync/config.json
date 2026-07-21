@@ -1,0 +1,122 @@
+{
+  "remote": "google-drive",
+  "base_destination": "Documents",
+  "exclude": [
+    "**/*~",
+    "**/*.swp",
+    "**/*.swo",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/__pycache__/**",
+    "**/*.pyc",
+    "**/*.pyo",
+    "**/.pytest_cache/**",
+    "**/.ruff_cache/**",
+    "**/.mypy_cache/**",
+    "**/.ipynb_checkpoints/**",
+    "**/.idea/**",
+    "**/.venv/**",
+    "**/venv/**",
+    "**/node_modules/**",
+    "**/*.aux",
+    "**/*.bbl",
+    "**/*.blg",
+    "**/*.fdb_latexmk",
+    "**/*.fls",
+    "**/*.synctex.gz"
+  ],
+  "profiles": {
+    "formal-archive": {
+      "source": "~/Documents/Formal/Archive",
+      "destination": "Formal/Archive"
+    },
+    "formal-banking": {
+      "source": "~/Documents/Formal/Banking",
+      "destination": "Formal/Banking"
+    },
+    "formal-economy": {
+      "source": "~/Documents/Formal/Economy",
+      "destination": "Formal/Economy"
+    },
+    "formal-health": {
+      "source": "~/Documents/Formal/Medical_history",
+      "destination": "Formal/Medical_history"
+    },
+    "formal-housing": {
+      "source": "~/Documents/Formal/Wohnung",
+      "destination": "Formal/Wohnung",
+      "exclude": [
+        "Archive/Studentenwerk/env/keys.txt"
+      ]
+    },
+    "formal-insurance": {
+      "source": "~/Documents/Formal/Insurance",
+      "destination": "Formal/Insurance"
+    },
+    "formal-personal": {
+      "source": "~/Documents/Formal/Personal_documents",
+      "destination": "Formal/Personal_documents"
+    },
+    "formal-telco": {
+      "source": "~/Documents/Formal/Telco",
+      "destination": "Formal/Telco"
+    },
+    "formal-travel": {
+      "source": "~/Documents/Formal/Travel",
+      "destination": "Formal/Travel"
+    },
+    "formal-warranty": {
+      "source": "~/Documents/Formal/Warranty",
+      "destination": "Formal/Warranty"
+    },
+    "formal-work": {
+      "source": "~/Documents/Formal/Work",
+      "destination": "Formal/Work"
+    },
+    "uni-archive": {
+      "source": "~/Documents/University/Archive",
+      "destination": "University/Archive"
+    },
+    "uni-bachelor": {
+      "source": "~/Documents/University/Bachelor",
+      "destination": "University/Bachelor",
+      "exclude": [
+        "**/build/**",
+        "**/install/**",
+        "**/*.o",
+        "**/*.a",
+        "**/*.so",
+        "**/*.root",
+        "**/*.tif",
+        "**/*.mrc",
+        "Semester_8/Tesis/devenv/user-events.tar.gz",
+        "Semester_8/FOPRA/73-DNA_origami/120624_laura.zip"
+      ]
+    },
+    "uni-master": {
+      "source": "~/Documents/University/Master",
+      "destination": "University/Master",
+      "exclude": [
+        "**/build/**",
+        "**/install/**",
+        "**/*.o",
+        "**/*.a",
+        "**/*.so",
+        "**/*.root",
+        "**/*.tif",
+        "**/*.mrc",
+        "E18/devenv/software/primakoffgenerator/generatorOut.txt",
+        "E18/devenv/software/TGEANT/.git/**",
+        "E18/devenv/software/primakoffgenerator/.git/**",
+        "E18/devenv/software/coral-git/.git/**",
+        "E18/devenv/software/geant/*.tar",
+        "E18/devenv/software/geant/*.tar.gz",
+        "E18/devenv/software/cernlib*.tar.gz"
+      ]
+    },
+    "uni-stk": {
+      "source": "~/Documents/University/STK",
+      "destination": "University/STK"
+    }
+  }
+}

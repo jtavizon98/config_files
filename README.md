@@ -30,6 +30,7 @@ The application packages include:
 - `ranger`
 - `rofi`
 - `tmux`
+- `tzync`
 - `wyspr`
 - `zathura`
 
