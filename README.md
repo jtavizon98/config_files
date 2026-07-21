@@ -109,6 +109,14 @@ Generated dependencies, caches, and secrets are intentionally not tracked.
 In particular:
 
 - OpenCode's `node_modules` and package metadata remain local.
+- Qtile's `secrets.env` remains local. Copy the tracked example and set its
+  permissions before starting Qtile:
+
+  ```bash
+  cp qtile/.config/qtile/secrets.env.example ~/.config/qtile/secrets.env
+  chmod 600 ~/.config/qtile/secrets.env
+  ```
+
 - Wyspr's `secrets.env` remains local.
 - The separate `~/.scripts` repository is not managed here.
 

@@ -7,4 +7,5 @@ opencode/.config/opencode/bun.lock
 opencode/.config/opencode/package-lock.json
 
 # Local secrets
+qtile/.config/qtile/secrets.env
 wyspr/.config/wyspr/secrets.env
