@@ -1,0 +1,41 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "instructions": ["~/.config/opencode/AGENTS.md"],
+
+
+  "permission": {
+    "bash": {
+      "sudo *": "deny"
+    }
+  },
+
+  "agent": {
+    "explore": {
+      "model": "opencode-go/deepseek-v4-flash"
+    },
+    "plan": {
+      "permission": {
+        "task": {
+          "*": "deny",
+          "explore": "allow",
+          "vision-reader": "allow"
+        }
+      }
+    },
+    "build": {
+      "permission": {
+        "task": {
+          "*": "deny",
+          "explore": "allow",
+          "cheap-worker": "allow",
+          "worker": "allow",
+          "smart-worker": "allow",
+          "vision-reader": "allow"
+        }
+      }
+    }
+  },
+
+  "disabled_providers": ["opencode"]
+}

@@ -1,0 +1,23 @@
+{
+  "llm": {
+    "endpoint": "https://opencode.ai/zen/go/v1/chat/completions",
+    "model": "deepseek-v4-flash",
+    "secrets_file": "secrets.env",
+    "api_key_variable": "LLM_API_KEY",
+    "prompt_file": "prompt.md",
+    "timeout_seconds": 12
+  },
+  "transcription": {
+    "model": "base",
+    "language": "auto",
+    "dictionary": [
+      "OpenCode",
+      "Qtile",
+      "Wayland",
+      "Wyspr"
+    ]
+  },
+  "output": {
+    "default": "clipboard"
+  }
+}

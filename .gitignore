@@ -1,0 +1,10 @@
+
+# Generated dependencies and caches
+**/node_modules/
+**/__pycache__/
+opencode/.config/opencode/package.json
+opencode/.config/opencode/bun.lock
+opencode/.config/opencode/package-lock.json
+
+# Local secrets
+wyspr/.config/wyspr/secrets.env
