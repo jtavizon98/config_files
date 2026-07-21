@@ -9,3 +9,17 @@ opencode/.config/opencode/package-lock.json
 # Local secrets
 qtile/.config/qtile/secrets.env
 wyspr/.config/wyspr/secrets.env
+
+# Local machine-specific / private config (tracked examples: *.example.*)
+qtile/.config/qtile/core/local.py
+tmux/.config/tmux/scripts/env.local.sh
+gtk/.config/gtk-3.0/bookmarks
+home/.rootrc
+
+# Common secret / key artifacts - never legitimate tracked config
+*.key
+*.pem
+*.token
+!*.example.key
+!*.example.pem
+!*.example.token

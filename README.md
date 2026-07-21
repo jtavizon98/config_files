@@ -119,19 +119,48 @@ the result.
 
 ## Local Files
 
-Generated dependencies, caches, and secrets are intentionally not tracked.
-In particular:
+Generated dependencies, caches, secrets, and machine-specific values are
+intentionally not tracked. Before using the configurations, create these
+local files:
 
-- OpenCode's `node_modules` and package metadata remain local.
-- Qtile's `secrets.env` remains local. Copy the tracked example and set its
-  permissions before starting Qtile:
+### Qtile local config
 
-  ```bash
-  cp qtile/.config/qtile/secrets.env.example ~/.config/qtile/secrets.env
-  chmod 600 ~/.config/qtile/secrets.env
-  ```
+```bash
+cp qtile/.config/qtile/core/local.example.py \
+   ~/.config/qtile/core/local.py
+chmod 600 ~/.config/qtile/core/local.py
+```
+
+Edit `~/.config/qtile/core/local.py` and set your weather location,
+wallpaper path, scripts directory, network interface, and touchpad
+identifiers.
+
+### Qtile API secrets
+
+```bash
+cp qtile/.config/qtile/secrets.env.example ~/.config/qtile/secrets.env
+chmod 600 ~/.config/qtile/secrets.env
+```
+
+Set `OPENWEATHER_API_KEY` in the file.
+
+### Tmux environment
+
+```bash
+cp tmux/.config/tmux/scripts/env.local.example.sh \
+   ~/.config/tmux/scripts/env.local.sh
+chmod 600 ~/.config/tmux/scripts/env.local.sh
+```
+
+Place machine-specific exports (research paths, toolchain variables) in
+`env.local.sh`.  Source `env.sh` from tmux sessions or shells; it
+automatically loads `env.local.sh` when present.
+
+### Other local files
 
 - Wyspr's `secrets.env` remains local.
+- GTK bookmarks (`~/.config/gtk-3.0/bookmarks`) are local only.
+- OpenCode's `node_modules` and package metadata remain local.
 - The separate `~/.scripts` repository is not managed here.
 
 Machine-specific or secret values should be kept in local files and loaded

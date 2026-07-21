@@ -4,6 +4,12 @@ from libqtile.lazy import lazy
 
 from core.vars import mod
 
+# Touchpad Wayland id (optional local override)
+try:
+    from core.local import touchpad_wl_id  # noqa: E501
+except ImportError:
+    touchpad_wl_id = ""
+
 
 def init_mouse(wayland=True):
     wl_input_rules = {}
@@ -22,9 +28,9 @@ def init_mouse(wayland=True):
         ),
         Click([mod], "Button2", lazy.window.bring_to_front()),
     ]
-    if wayland:
+    if wayland and touchpad_wl_id:
         # When using the Wayland backend, this can be used to configure input devices.
-        wl_input_rules["1267:12866:Example Touchpad"] = InputConfig(
+        wl_input_rules[touchpad_wl_id] = InputConfig(
             natural_scroll=True,
             tap=True,
             dwt=True,

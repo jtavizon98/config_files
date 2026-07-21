@@ -1,4 +1,3 @@
-library
 google-chrome
 libpdfium-nojs
 python-polars-bin

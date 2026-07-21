@@ -6,5 +6,5 @@ picom &
 nm-applet &
 blueman-applet&
 
-# Set natural scrolling on touchpad
-xinput set-prop "Example Touchpad" "libinput Natural Scrolling Enabled" 1
+# Touchpad settings are now configured in Qtile's core/local.py
+# (touchpad_xinput_name).  See core/local.example.py for details.

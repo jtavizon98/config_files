@@ -12,6 +12,12 @@ from core.mouse import init_mouse
 from core.vars import bar_font_size, wallpaper_background
 from core.widgets import init_widgets
 
+# Touchpad X11 xinput name (optional local override)
+try:
+    from core.local import touchpad_xinput_name  # noqa: E501
+except ImportError:
+    touchpad_xinput_name = ""
+
 xorg_flag = qtile.core.name == "x11"
 wayland_flag = qtile.core.name == "wayland"
 
@@ -87,9 +93,13 @@ def start_once(wayland=True):
                 "picom",
                 "nm-applet",
                 "blueman-applet",
-                'xinput set-prop "Example Touchpad" "libinput Natural Scrolling Enabled" 1',
             ]
         )
+        if touchpad_xinput_name:
+            command.append(
+                f'xinput set-prop "{touchpad_xinput_name}" '
+                '"libinput Natural Scrolling Enabled" 1'
+            )
     else:
         command.extend(["/usr/lib/hyprpolkitagent/hyprpolkitagent"])
     command = [line + " & " for line in command]

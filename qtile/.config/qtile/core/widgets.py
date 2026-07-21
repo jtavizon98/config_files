@@ -5,6 +5,12 @@ from core import api_keys
 from core.colors import catppuccin
 from core.vars import launcher, location, script_path
 
+# Wireless interface (optional local override)
+try:
+    from core.local import wlan_interface  # noqa: E501
+except ImportError:
+    wlan_interface = ""
+
 # Qtile extras rounded corners
 decorations_group = {
     "decorations": [
@@ -160,7 +166,7 @@ def init_widgets():
             foreground=catppuccin["surface0"],
             format=" 󰖩  ",
             disconnected_message=" 󰖪  ",
-            interface="wlan0",
+            interface=wlan_interface,
             update_interval=5,
             mouse_callbacks={"Button1": lambda: qtile.spawn("networkmanager_dmenu")},
             **decorations_group,
@@ -171,7 +177,7 @@ def init_widgets():
             fmt="{} ",
             format="{percent:2.0%}",
             disconnected_message="",
-            interface="wlan0",
+            interface=wlan_interface,
             update_interval=5,
             mouse_callbacks={"Button1": lambda: qtile.spawn("networkmanager_dmenu")},
             **decorations_group,
