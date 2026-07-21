@@ -12,11 +12,9 @@ if [ -r /usr/share/bash-completion/bash_completion ]; then
 fi
 
 # 4. Prompt (PS1)
-C_ROJO='\[\033[1;38;5;196m\]'
-C_AZUL='\[\033[1;38;5;27m\]'
-C_LBLU='\[\033[1;38;5;31m\]'
-C_ROSA='\[\033[1;38;5;200m\]'
-C_PURP='\[\033[1;38;5;129m\]'
+C_ROJO='\[\033[1;31m\]'
+C_AZUL='\[\033[1;34m\]'
+C_LBLU='\[\033[1;36m\]'
 C_BOLD='\[\033[1m\]'
 
 C_RESET='\[\033[00m\]'
@@ -34,7 +32,7 @@ else
 fi
 
 # Clean up variables
-unset C_AZUL C_ROSA C_PURP C_GOLD C_LBLU C_RESET C_ROJO
+unset C_AZUL C_LBLU C_RESET C_ROJO
 
 # 5. Essential Aliases
 alias ls='ls --color=auto'

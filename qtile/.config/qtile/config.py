@@ -67,13 +67,11 @@ reconfigure_screens = True
 def start_once(wayland=True):
     if wayland:
         os.environ["XDG_CURRENT_DESKTOP"] = "qtile"
-        os.environ["GTK_THEME"] = "catppuccin-macchiato-blue-standard+default"
         subprocess.run(
             [
                 "systemctl", "--user", "set-environment",
                 f"XDG_CURRENT_DESKTOP=qtile",
                 f"WAYLAND_DISPLAY={os.environ['WAYLAND_DISPLAY']}",
-                "GTK_THEME=catppuccin-macchiato-blue-standard+default",
             ],
             capture_output=True,
         )

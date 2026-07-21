@@ -276,9 +276,7 @@ def init_keys(groups, wayland=True):
         Key(
             [mod, "shift"],
             "q",
-            lazy.spawn(
-                f"bash {os.path.join(script_path,'powermenu/type-1/powermenu.sh')}"
-            ),
+            lazy.spawn(os.path.join(script_path, "powermenu")),
             desc="Display power menu",
         ),
         # Shut down system

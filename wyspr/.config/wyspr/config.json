@@ -10,12 +10,7 @@
   "transcription": {
     "model": "base",
     "language": "auto",
-    "dictionary": [
-      "OpenCode",
-      "Qtile",
-      "Wayland",
-      "Wyspr"
-    ]
+    "dictionary": ["OpenCode", "Qtile", "Wayland", "Wyspr"]
   },
   "output": {
     "default": "clipboard"

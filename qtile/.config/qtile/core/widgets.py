@@ -210,9 +210,7 @@ def init_widgets():
             foreground=catppuccin["red"],
             background=catppuccin["crust"],
             mouse_callbacks={
-                "Button1": lambda: qtile.spawn(
-                    f"bash {script_path}powermenu/type-1/powermenu.sh"
-                )
+                "Button1": lambda: qtile.spawn(f"{script_path}powermenu")
             },
             padding=0,
             fontsize=24,
