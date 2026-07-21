@@ -158,7 +158,7 @@ automatically loads `env.local.sh` when present.
 
 ### Other local files
 
-- Wyspr's `secrets.env` remains local.
+- Wyspr's `secrets.env` remains local and should use mode `0600`.
 - GTK bookmarks (`~/.config/gtk-3.0/bookmarks`) are local only.
 - OpenCode's `node_modules` and package metadata remain local.
 - The separate `~/.scripts` repository is not managed here.

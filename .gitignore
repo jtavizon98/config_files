@@ -20,6 +20,13 @@ home/.rootrc
 *.key
 *.pem
 *.token
+*.secret
+*.private
+credentials*
+**/.env
+**/.env.*
 !*.example.key
 !*.example.pem
 !*.example.token
+!*.example
+!*.example.*
