@@ -14,7 +14,6 @@ wyspr/.config/wyspr/secrets.env
 qtile/.config/qtile/core/local.py
 tmux/.config/tmux/scripts/env.local.sh
 gtk/.config/gtk-3.0/bookmarks
-home/.rootrc
 
 # Common secret / key artifacts - never legitimate tracked config
 *.key

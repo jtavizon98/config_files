@@ -10,9 +10,9 @@ where they should be installed relative to `$HOME`.
 For example, `nvim/.config/nvim/init.lua` is installed as
 `~/.config/nvim/init.lua`.
 
-The `home` package contains home-directory files, including `.bashrc`,
-`.vimrc`, `.bash_profile`, `.rootrc`, `.packages.txt`, and
-`.packages_AUR.txt`.
+The `home` package contains portable home-directory files, including `.bashrc`,
+`.vimrc`, `.bash_profile`, `.packages.txt`, and `.packages_AUR.txt`. Private
+machine files remain local and are not managed by Stow.
 
 The application packages include:
 
@@ -135,6 +135,9 @@ Edit `~/.config/qtile/core/local.py` and set your weather location,
 wallpaper path, scripts directory, network interface, and touchpad
 identifiers.
 
+The example remains in the repository and is excluded from Stow. The local
+file is a regular file under `~/.config`, not a symlink into this repository.
+
 ### Qtile API secrets
 
 ```bash
@@ -152,9 +155,12 @@ cp tmux/.config/tmux/scripts/env.local.example.sh \
 chmod 600 ~/.config/tmux/scripts/env.local.sh
 ```
 
-Place machine-specific exports (research paths, toolchain variables) in
+Place machine-specific exports (private paths and toolchain variables) in
 `env.local.sh`.  Source `env.sh` from tmux sessions or shells; it
 automatically loads `env.local.sh` when present.
+
+The tracked `env.sh` is installed by Stow. The example is not installed, and
+`env.local.sh` remains a regular local file.
 
 ### Other local files
 
@@ -164,7 +170,14 @@ automatically loads `env.local.sh` when present.
 - The separate `~/.scripts` repository is not managed here.
 
 Machine-specific or secret values should be kept in local files and loaded
-by the tracked configuration where possible.
+by the tracked configuration where possible. Private files should be regular
+files with mode `0600`; do not place them inside this repository or use
+`stow --adopt` on them.
+
+When migrating an existing installation, copy private file contents to their
+final paths before restowing, remove obsolete symlinks, then run `stow -n -v`
+before applying `stow -v`. Generated `__pycache__` directories should not be
+stowed.
 
 ## License
 
