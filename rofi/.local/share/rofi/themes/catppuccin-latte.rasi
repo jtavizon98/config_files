@@ -1,7 +1,7 @@
 * {
     bg-col:  #eff1f5;
     bg-col-light: #eff1f5;
-    border-col: #eff1f5;
+    border-col: #ea76cb;
     selected-col: #eff1f5;
     blue: #1e66f5;
     fg-col: #4c4f69;
@@ -20,6 +20,7 @@ element-text, element-icon , mode-switcher {
 window {
     height: 360px;
     border: 3px;
+    border-radius: 12px;
     border-color: @border-col;
     background-color: @bg-col;
 }
@@ -95,4 +96,3 @@ button selected {
   background-color: @bg-col;
   text-color: @blue;
 }
-
