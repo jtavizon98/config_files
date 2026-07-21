@@ -2,6 +2,12 @@
 
 Personal configuration files managed with Git and GNU Stow.
 
+These configurations are shared as a commons. You are free to study, adapt,
+and redistribute them. Please preserve attribution and share substantial
+improvements under the same terms.
+
+Licensed under the GNU General Public License version 3.
+
 ## Layout
 
 Each top-level directory is a Stow package. Its contents mirror the paths
