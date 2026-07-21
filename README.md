@@ -73,6 +73,20 @@ Remove a package's links without deleting the files in this repository:
 stow -D -v -t "$HOME" nvim
 ```
 
+## Packages
+
+From the repository root, reinstall the packages listed for the system and
+the AUR:
+
+```bash
+sudo pacman -Syu
+sudo pacman -S --needed - < home/.packages.txt
+paru -S --needed - < home/.packages_AUR.txt
+```
+
+The package lists may contain packages that have been renamed or removed
+since they were created. Review any errors and update the lists as needed.
+
 ## Updating Configurations
 
 Edit the files in `~/.dotfiles`; the installed files in `$HOME` are
