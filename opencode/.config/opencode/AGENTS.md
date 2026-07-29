@@ -19,6 +19,13 @@
 - Prefer direct, factual collaboration over long speculative explanations.
 - When debugging, prefer concrete evidence from tests, logs, or instrumentation over guessing.
 
+# Workspace Layout
+
+- Managed configuration lives in `~/.dotfiles`; inspect its `README.md` before changing system configuration.
+- Personal scripts live in the separate `~/.scripts` repository.
+- Software projects live as independent repositories under `~/.software`.
+- Before changing a repository, read its root `AGENTS.md` and `README.md` when present.
+
 # Model Routing
 
 These are defaults, not limits. Judge the output, not the price tag.
@@ -40,27 +47,28 @@ Model scores:
 | GPT-5.6 Sol       |            2 |            8 |       6 |     8 |       |
 | GPT-5.6 Terra     |            3 |            8 |       5 |     8 |       |
 | GPT-5.6 Luna      |            4 |            8 |       4 |     8 |       |
-| DeepSeek V4 Pro   |            7 |            6 |       2 |   N/A |     7 |
+| GLM-5.2           |            4 |            8 |       4 |     8 |     9 |
+| DeepSeek V4 Pro   |            8 |            6 |       2 |   N/A |     7 |
 | DeepSeek V4 Flash |           10 |            4 |       1 |   N/A |     6 |
-| MiniMax M3        |            6 |            6 |       1 |     7 |     6 |
+| MiniMax M3        |            7 |            6 |       1 |     7 |     6 |
 
 Routing:
 
 | preferred agent | model             |
 | --------------- | ----------------- |
 | explore         | DeepSeek V4 Flash |
-| cheap-worker    | MiMo-V2.5-Pro      |
+| cheap-worker    | MiMo-V2.5-Pro     |
 | worker          | DeepSeek V4 Pro   |
-| smart-worker    | GPT-5.6 Luna      |
+| smart-worker    | GLM-5.2           |
 | primary agent   | GPT-5.6 Sol       |
 | vision-reader   | MiniMax M3        |
 
 Physics escalation:
 
 - DeepSeek V4 Pro may handle implementation around physics code.
-- If harder physics reasoning is needed, use GPT-5.6 directly.
-- If V4 Pro misses a physics issue while coding, do not ask V4 Pro to check again. Escalate to GPT-5.6.
-- Use GPT-5.6 Terra or Luna for physics checks.
+- If harder physics reasoning is needed, use GPT-5.6/GLM-5.2 directly.
+- If V4 Pro misses a physics issue while coding, do not ask V4 Pro to check again. Escalate.
+- Use GPT/GLM for physics checks.
 - Use GPT-5.6 Sol for more complex physics reasoning.
 
 Escalation rules:
@@ -75,7 +83,10 @@ Escalation rules:
 Subagent routing:
 
 1. Decompose multi-step work into small, independently verifiable tasks before delegating.
-2. Use explore for repository discovery, cheap-worker for trivial mechanical work, and worker for normal bounded implementation and tests.
-3. Use smart-worker only for a difficult bounded slice, focused review, or reasoning problem that worker is not suited to handle.
+2. Use explore for repository discovery, cheap-worker for trivial mechanical work, and worker by default for all bounded implementation, debugging, refactoring, and tests.
+3. Use smart-worker for a precisely scoped physics, statistical, mathematical, numerical, or algorithmic correctness question when that reasoning is central to the task. It may be used directly only when the prompt names the concrete capability required; prior worker failure is not mandatory.
 4. Do not send an entire large task to smart-worker. Keep architecture, coordination, integration, and final validation in the primary agent.
-5. Delegate each task to the least capable suitable agent. Escalate only after concrete uncertainty, failure, or risk justifies it.
+5. Delegate each task to the least expensive agent reasonably likely to complete it correctly on the first attempt.
+6. For general implementation and debugging, use worker first. Escalate after one inconclusive, inconsistent, incomplete, or incorrect result rather than repeatedly retrying worker.
+7. Do not use smart-worker merely because work is difficult or non-trivial, for broad reviews, or for unsolicited second opinions.
+8. Default to at most one smart-worker call per user request. Make another only for a distinct critical blocker, not merely another component to review.
