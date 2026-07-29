@@ -1,6 +1,6 @@
 {
   "remote": "google-drive",
-  "base_destination": "Documents",
+  "base_destination": "",
   "exclude": [
     "**/*~",
     "**/*.swp",
@@ -97,6 +97,7 @@
       "source": "~/Documents/University/Master",
       "destination": "University/Master",
       "exclude": [
+        "tesis/**",
         "**/build/**",
         "**/install/**",
         "**/*.o",
@@ -105,6 +106,7 @@
         "**/*.root",
         "**/*.tif",
         "**/*.mrc",
+        "E18/devenv/software/**",
         "E18/devenv/software/primakoffgenerator/generatorOut.txt",
         "E18/devenv/software/TGEANT/.git/**",
         "E18/devenv/software/primakoffgenerator/.git/**",
@@ -112,6 +114,24 @@
         "E18/devenv/software/geant/*.tar",
         "E18/devenv/software/geant/*.tar.gz",
         "E18/devenv/software/cernlib*.tar.gz"
+      ]
+    },
+    "master-thesis": {
+      "source": "~/Documents/University/Master/tesis",
+      "destination": "University/Master/tesis",
+      "exclude": [
+        "code/analyb/**",
+        "code/fastframes/**",
+        "code/master-thesis-analysis/**",
+        "code/TopCPToolkit/**",
+        "mnt/**",
+        ".venv/**",
+        ".opencode/node_modules/**",
+        "latex/**/*.bcf",
+        "latex/**/*.log",
+        "latex/**/*.out",
+        "latex/**/*.run.xml",
+        "latex/**/*.toc"
       ]
     },
     "uni-stk": {

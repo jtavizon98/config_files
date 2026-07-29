@@ -1,3 +1,8 @@
+case ":$PATH:" in
+    *":$HOME/.local/bin:"*) ;;
+    *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
+
 # 1. Exit if not running interactively
 [[ $- != *i* ]] && return
 
@@ -50,6 +55,7 @@ complete -cf sudo
 
 # Hermes tab completion
 [ -r ~/.scripts/completions/hermes.bash ] && . ~/.scripts/completions/hermes.bash
+[ -r ~/.software/wyspr/completions/wyspr.bash ] && . ~/.software/wyspr/completions/wyspr.bash
 
 PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;

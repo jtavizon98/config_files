@@ -1,6 +1,12 @@
 import os
 import subprocess
 
+local_bin = os.path.expanduser("~/.local/bin")
+path_entries = os.environ.get("PATH", "").split(os.pathsep)
+os.environ["PATH"] = os.pathsep.join(
+    [local_bin, *(entry for entry in path_entries if entry != local_bin)]
+)
+
 from libqtile import bar, hook, qtile
 from libqtile.config import Match, Screen
 
@@ -62,6 +68,8 @@ dgroups_app_rules = []
 follow_mouse_focus = True
 bring_front_click = "floating_only"
 cursor_warp = False
+wl_xcursor_theme = "catppuccin-macchiato-lavender-cursors"
+wl_xcursor_size = 24
 
 auto_fullscreen = True
 floats_kept_above = True

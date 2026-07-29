@@ -25,6 +25,7 @@ The application packages include:
 - `mpv`
 - `networkmanager-dmenu`
 - `nvim`
+- `paru`
 - `opencode`
 - `qtile`
 - `ranger`

@@ -16,7 +16,7 @@ from core.vars import (
 # from libqtile.utils import guess_terminal
 
 
-def _wyspr_toggle(qtile, output):
+def _wyspr_toggle(qtile, output, live_preview=False):
     window = qtile.current_window
     app = None
     title = None
@@ -32,12 +32,14 @@ def _wyspr_toggle(qtile, output):
             pass
 
     command = [
-        os.path.join(script_path, "wyspr"),
+        "wyspr",
         "record",
         "toggle",
         "--output",
         output,
     ]
+    if live_preview:
+        command.append("--live-preview")
     if app:
         command.extend(["--app", app])
     if title:
@@ -50,14 +52,14 @@ _wayland_keys = [
     Key(
         [mod],
         "v",
-        lazy.function(_wyspr_toggle, output="clipboard"),
-        desc="Toggle voice recording to clipboard",
+        lazy.function(_wyspr_toggle, output="clipboard", live_preview=True),
+        desc="Toggle voice recording with live preview",
     ),
     Key(
         [mod, "shift"],
         "v",
-        lazy.function(_wyspr_toggle, output="type"),
-        desc="Toggle voice recording with direct typing",
+        lazy.function(_wyspr_toggle, output="clipboard"),
+        desc="Toggle voice recording to clipboard without preview",
     ),
     # Take screenshot
     Key(
