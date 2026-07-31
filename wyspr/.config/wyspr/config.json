@@ -4,11 +4,12 @@
     "model": "deepseek-v4-flash",
     "secrets_file": "secrets.env",
     "api_key_variable": "LLM_API_KEY",
-    "prompt_file": "prompt.md",
+    "prompt_file": "~/.config/wyspr/prompt.md",
     "timeout_seconds": 12
   },
   "transcription": {
-    "model": "base",
+    "model": "small",
+    "preview_model": "base",
     "language": "auto",
     "dictionary": ["OpenCode", "Qtile", "Wayland", "Wyspr"]
   },

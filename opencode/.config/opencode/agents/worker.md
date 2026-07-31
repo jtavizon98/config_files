@@ -2,7 +2,7 @@
 description: Default cost-efficient worker for clear implementation, mechanical edits, straightforward debugging, tests, and routine refactors.
 mode: subagent
 hidden: true
-model: opencode-go/deepseek-v4-pro
+model: opencode-go/deepseek-v4-flash
 permission:
   task: deny
 ---
