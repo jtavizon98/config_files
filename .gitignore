@@ -15,7 +15,21 @@ qtile/.config/qtile/core/local.py
 tmux/.config/tmux/scripts/env.local.sh
 gtk/.config/gtk-3.0/bookmarks
 
+# Claude Code runtime state - never stow or track these
+claude/.claude/.credentials.json
+claude/.claude/settings.local.json
+claude/.claude/history.jsonl
+claude/.claude/projects/
+claude/.claude/sessions/
+claude/.claude/session-env/
+claude/.claude/shell-snapshots/
+claude/.claude/cache/
+claude/.claude/backups/
+claude/.claude/plugins/
+claude/.claude/todos/
+
 # Common secret / key artifacts - never legitimate tracked config
+.credentials*
 *.key
 *.pem
 *.token

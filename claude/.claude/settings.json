@@ -1,0 +1,37 @@
+{
+  "theme": "auto",
+  "model": "opus",
+  "preferredNotifChannel": "terminal_bell",
+  "permissions": {
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(sudo)"
+    ],
+    "additionalDirectories": [
+      "/home/jairot/.dotfiles",
+      "/home/jairot/.scripts"
+    ]
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.message // \"Waiting for input\"' | { read -r m; notify-send -a \"Claude Code\" -u normal \"Claude Code\" \"$m\"; } 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send -a \"Claude Code\" -u low -t 4000 \"Claude Code\" \"Turn complete\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

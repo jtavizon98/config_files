@@ -17,6 +17,7 @@ machine files remain local and are not managed by Stow.
 The application packages include:
 
 - `alacritty`
+- `claude`
 - `dunst`
 - `fontconfig`
 - `gtk`
@@ -163,6 +164,27 @@ automatically loads `env.local.sh` when present.
 
 The tracked `env.sh` is installed by Stow. The example is not installed, and
 `env.local.sh` remains a regular local file.
+
+### Claude Code
+
+`~/.claude` is a mixed directory: Claude Code writes credentials, sessions,
+history, and caches there at runtime, and Stow links the tracked files
+alongside them. Only three entries come from this repository:
+
+```text
+~/.claude/CLAUDE.md     -> claude/.claude/CLAUDE.md
+~/.claude/settings.json -> claude/.claude/settings.json
+~/.claude/skills        -> claude/.claude/skills
+```
+
+Because `~/.claude` already exists as a real directory, Stow descends into it
+and links only those entries; it does not replace the directory. Everything
+else there is local runtime state and is excluded by `.gitignore`.
+
+Machine-specific overrides belong in `~/.claude/settings.local.json`, which is
+a regular local file and is never stowed. Per-project instructions live in each
+repository as `CLAUDE.md`, symlinked to that repository's `AGENTS.md` so
+Claude Code and OpenCode read the same file.
 
 ### Other local files
 
