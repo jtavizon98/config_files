@@ -32,3 +32,8 @@ size = 15.5
 
 [selection]
 save_to_clipboard = false
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
