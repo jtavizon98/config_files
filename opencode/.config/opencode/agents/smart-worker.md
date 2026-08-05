@@ -2,7 +2,7 @@
 description: Specialized delegated worker for bounded domain or correctness reasoning when the prompt identifies a concrete capability the default worker lacks.
 mode: subagent
 hidden: true
-model: opencode-go/gpt-5.6-luna
+model: openai/gpt-5.6-luna
 permission:
   task: deny
 ---
