@@ -51,10 +51,12 @@ alias more='less'
 alias qinit="qtile start -b wayland"
 alias dotfiles='git -C "$HOME/.dotfiles"'
 alias oc="opencode"
+alias cc="claude"
 complete -cf sudo
 
 # Hermes tab completion
 [ -r ~/.scripts/completions/hermes.bash ] && . ~/.scripts/completions/hermes.bash
+[ -r ~/.scripts/completions/ariadne.bash ] && . ~/.scripts/completions/ariadne.bash
 [ -r ~/.software/wyspr/completions/wyspr.bash ] && . ~/.software/wyspr/completions/wyspr.bash
 
 PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
