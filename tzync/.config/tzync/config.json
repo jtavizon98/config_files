@@ -124,6 +124,7 @@
         "code/fastframes/**",
         "code/master-thesis-analysis/**",
         "code/TopCPToolkit/**",
+        "credentials/**",
         "mnt/**",
         ".venv/**",
         ".opencode/node_modules/**",
