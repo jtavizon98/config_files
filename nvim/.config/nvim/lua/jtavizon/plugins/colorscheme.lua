@@ -3,7 +3,7 @@ return {
 	name = "catppuccin",
 	priority = 1000,
 	opts = {
-		flavour = "mocha",
+		flavour = "latte",
 		integrations = {
 			alpha = true,
 			cmp = true,

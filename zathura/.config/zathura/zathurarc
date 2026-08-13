@@ -4,6 +4,6 @@ set font "UbuntuMono Nerd Font 15"
 
 map i recolor
 map p print
-set recolor true
+set recolor false
 
 include catppuccin-macchiato
