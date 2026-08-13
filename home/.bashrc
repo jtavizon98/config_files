@@ -1,7 +1,14 @@
-case ":$PATH:" in
-    *":$HOME/.local/bin:"*) ;;
-    *) export PATH="$HOME/.local/bin:$PATH" ;;
-esac
+for path_entry in "$HOME/.local/bin" "$HOME/.scripts"; do
+    case ":$PATH:" in
+        *":$path_entry:"*) ;;
+        *) PATH="$path_entry:$PATH" ;;
+    esac
+done
+unset path_entry
+export PATH
+
+# ranger :terminal command
+export TERMCMD=alacritty
 
 # 1. Exit if not running interactively
 [[ $- != *i* ]] && return

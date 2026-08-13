@@ -19,6 +19,7 @@ The application packages include:
 - `alacritty`
 - `claude`
 - `dunst`
+- `environment`
 - `fontconfig`
 - `gtk`
 - `hypr`
