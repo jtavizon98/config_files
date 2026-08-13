@@ -1,3 +1,5 @@
+import os
+
 from libqtile import bar, qtile
 from qtile_extras import widget
 
@@ -139,9 +141,6 @@ def init_widgets():
             prefix_paused="󱦠 ",
             prefix_break=" ",
             prefix_long_break=" ",
-            # length_pomodori=0.25,
-            # length_short_break=0.25,
-            # length_long_break=0.25,
             **decorations_group,
         ),
         widget.Spacer(background="ffffff00", length=3),
@@ -162,7 +161,7 @@ def init_widgets():
         ),
         widget.Spacer(background="ffffff00", length=3),
         widget.Wlan(
-            background=catppuccin["lavander"],
+            background=catppuccin["lavender"],
             foreground=catppuccin["surface0"],
             format=" 󰖩  ",
             disconnected_message=" 󰖪  ",
@@ -172,7 +171,7 @@ def init_widgets():
             **decorations_group,
         ),
         widget.Wlan(
-            background=catppuccin["lavander"],
+            background=catppuccin["lavender"],
             foreground=catppuccin["surface0"],
             fmt="{} ",
             format="{percent:2.0%}",
@@ -216,7 +215,7 @@ def init_widgets():
             foreground=catppuccin["red"],
             background=catppuccin["crust"],
             mouse_callbacks={
-                "Button1": lambda: qtile.spawn(f"{script_path}powermenu")
+                "Button1": lambda: qtile.spawn(os.path.join(script_path, "powermenu"))
             },
             padding=0,
             fontsize=24,

@@ -99,46 +99,14 @@ _xorg_keys = [
 ]
 
 
-def window_to_previous_group(qtile):
-    if qtile.current_window is not None:
-        i = qtile.groups.index(qtile.current_group)
-        qtile.current_window.togroup(qtile.groups[i - 1].name)
+def move_window_to_screen(qtile, offset):
+    if qtile.current_window is None:
+        return
 
-
-def window_to_next_group(qtile):
-    if qtile.current_window is not None:
-        i = qtile.groups.index(qtile.current_group)
-        qtile.current_window.togroup(qtile.groups[i + 1].name)
-
-
-def window_to_previous_screen(qtile):
-    i = qtile.screens.index(qtile.current_screen)
-    if i != 0:
-        group = qtile.screens[i - 1].group.name
-        qtile.current_window.togroup(group)
-        qtile.focus_screen(i - 1)
-    else:
-        group = qtile.screens[-1].group.name
-        qtile.current_window.togroup(group)
-        qtile.focus_screen(len(qtile.screens) - 1)
-
-
-def window_to_next_screen(qtile):
-    i = qtile.screens.index(qtile.current_screen)
-    if i + 1 != len(qtile.screens):
-        group = qtile.screens[i + 1].group.name
-        qtile.current_window.togroup(group)
-        qtile.focus_screen(i + 1)
-    else:
-        group = qtile.screens[0].group.name
-        qtile.current_window.togroup(group)
-        qtile.focus_screen(0)
-
-
-def switch_screens(qtile):
-    i = qtile.screens.index(qtile.current_screen)
-    group = qtile.screens[i - 1].group
-    qtile.current_screen.set_group(group)
+    current = qtile.screens.index(qtile.current_screen)
+    target = (current + offset) % len(qtile.screens)
+    qtile.current_window.toscreen(target)
+    qtile.focus_screen(target)
 
 
 def _extend_keys(keys, groups, wayland=True):
@@ -184,9 +152,6 @@ def init_keys(groups, wayland=True):
         Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
         Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
         Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-        Key(
-            [mod], "space", lazy.layout.next(), desc="Move window focus to other window"
-        ),
         # Launching my Programs
         Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
         Key([mod], "w", lazy.spawn(browser), desc="Launch browser"),
@@ -245,13 +210,13 @@ def init_keys(groups, wayland=True):
         Key(
             [mod, "shift"],
             "comma",
-            lazy.function(window_to_previous_screen),
+            lazy.function(move_window_to_screen, offset=-1),
             desc="Move current window to previous screen",
         ),
         Key(
             [mod, "shift"],
             "period",
-            lazy.function(window_to_next_screen),
+            lazy.function(move_window_to_screen, offset=1),
             desc="Move current window to next screen",
         ),
         # Grow windows. If current window is on the edge of screen and direction

@@ -1,14 +1,14 @@
 import os
 import subprocess
 
-local_bin = os.path.expanduser("~/.local/bin")
+user_paths = [os.path.expanduser(path) for path in ("~/.local/bin", "~/.scripts")]
 path_entries = os.environ.get("PATH", "").split(os.pathsep)
 os.environ["PATH"] = os.pathsep.join(
-    [local_bin, *(entry for entry in path_entries if entry != local_bin)]
+    [*user_paths, *(entry for entry in path_entries if entry not in user_paths)]
 )
 
 from libqtile import bar, hook, qtile
-from libqtile.config import Match, Screen
+from libqtile.config import Screen
 
 from core.colors import catppuccin
 from core.groups import init_groups
@@ -24,7 +24,6 @@ try:
 except ImportError:
     touchpad_xinput_name = ""
 
-xorg_flag = qtile.core.name == "x11"
 wayland_flag = qtile.core.name == "wayland"
 
 groups = init_groups()
@@ -66,20 +65,18 @@ mouse, wl_input_rules = init_mouse(wayland=wayland_flag)
 dgroups_key_binder = None
 dgroups_app_rules = []
 follow_mouse_focus = True
-bring_front_click = "floating_only"
 cursor_warp = False
 wl_xcursor_theme = "catppuccin-macchiato-lavender-cursors"
 wl_xcursor_size = 24
 
 auto_fullscreen = True
-floats_kept_above = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
 
 @hook.subscribe.startup_once
-def start_once(wayland=True):
-    if wayland:
+def start_once():
+    if wayland_flag:
         os.environ["XDG_CURRENT_DESKTOP"] = "qtile"
         subprocess.run(
             [
@@ -94,7 +91,7 @@ def start_once(wayland=True):
         "dunst",
         "notify-spotify",
     ]
-    if not wayland:
+    if not wayland_flag:
         command.extend(
             [
                 "lxsession",

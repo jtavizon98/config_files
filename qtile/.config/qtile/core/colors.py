@@ -11,7 +11,7 @@ catppuccin = {
     "subtext0": ["#a5adcb", "#a5adcb"],
     "subtext1": ["#b8c0e0", "#b8c0e0"],
     "text": ["#cad3f5", "#cad3f5"],
-    "lavander": ["#b7bdf8", "#b7bdf8"],
+    "lavender": ["#b7bdf8", "#b7bdf8"],
     "blue": ["#8aadf4", "#8aadf4"],
     "sapphire": ["#7dc4e4", "#7dc4e4"],
     "sky": ["#91d7e3", "#91d7e3"],
