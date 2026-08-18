@@ -19,6 +19,7 @@
         "task": {
           "*": "deny",
           "explore": "allow",
+          "copy-reviewer": "allow",
           "vision-reader": "allow"
         }
       }
@@ -28,6 +29,7 @@
         "task": {
           "*": "deny",
           "explore": "allow",
+          "copy-reviewer": "allow",
           "worker": "allow",
           "smart-worker": "allow",
           "vision-reader": "allow"

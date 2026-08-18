@@ -10,7 +10,10 @@
 
 - Always strive for concise, simple solutions.
 - If a problem can be solved in a simpler way, propose the simpler approach.
-- Prefer the smallest correct change.
+- Prefer the smallest coherent change at the appropriate abstraction level.
+  Minimize incidental scope, not restructuring needed to fully resolve the
+  problem. Fewer changed lines are not better when they preserve duplication,
+  a mismatched structure, or accumulated patches.
 - Avoid abstractions unless they clarify hard logic or remove real duplication.
 
 # General Preferences

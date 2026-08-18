@@ -10,7 +10,10 @@
 
 - Always strive for concise, simple solutions.
 - If a problem can be solved in a simpler way, propose the simpler approach.
-- Prefer the smallest correct change.
+- Prefer the smallest coherent change at the appropriate abstraction level.
+  Minimize incidental scope, not restructuring needed to fully resolve the
+  problem. Fewer changed lines are not better when they preserve duplication,
+  a mismatched structure, or accumulated patches.
 - Avoid abstractions unless they clarify hard logic or remove real duplication.
 
 # General Preferences
@@ -58,6 +61,7 @@ Routing:
 | explore         | DeepSeek V4 Flash |
 | worker          | DeepSeek V4 Flash |
 | smart-worker    | GLM-5.2           |
+| copy-reviewer   | Kimi K2.6         |
 | primary agent   | GPT-5.6 Sol       |
 | vision-reader   | MiniMax M3        |
 
@@ -88,3 +92,6 @@ Subagent routing:
 6. For general implementation and debugging, use worker first. Escalate after one inconclusive, inconsistent, incomplete, or incorrect result rather than repeatedly retrying worker.
 7. Do not use smart-worker merely because work is difficult or non-trivial, for broad reviews, or for unsolicited second opinions.
 8. Default to at most one smart-worker call per user request. Make another only for a distinct critical blocker, not merely another component to review.
+9. Use copy-reviewer for independent structural and prose feedback on
+   substantial reports or written copy. It is read-only and does not replace
+   factual, physics, numerical, or visual review.
