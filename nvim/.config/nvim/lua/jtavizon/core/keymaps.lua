@@ -38,8 +38,5 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to system clipboar
 -- eXterminate: delete to void register
 vim.keymap.set({ "n", "v" }, "<leader>x", [["_d]], { desc = "Delete without yanking" })
 
--- For visual block mode editing
-vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
-
 -- Easier find and replace
 vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word under cursor" })

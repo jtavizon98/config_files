@@ -14,7 +14,7 @@ from core.colors import catppuccin
 from core.groups import init_groups
 from core.keys import init_keys
 from core.layouts import init_layouts
-from core.mouse import init_mouse
+from core.inputs import init_mouse
 from core.vars import bar_font_size, wallpaper_background
 from core.widgets import init_widgets
 

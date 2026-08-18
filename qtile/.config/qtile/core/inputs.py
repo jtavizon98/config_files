@@ -28,6 +28,10 @@ def init_mouse(wayland=True):
         ),
         Click([mod], "Button2", lazy.window.bring_to_front()),
     ]
+    if wayland:
+        wl_input_rules["type:keyboard"] = InputConfig(
+            kb_options="caps:swapescape",
+        )
     if wayland and touchpad_wl_id:
         # When using the Wayland backend, this can be used to configure input devices.
         wl_input_rules[touchpad_wl_id] = InputConfig(

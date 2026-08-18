@@ -141,9 +141,6 @@ nnoremap <C-p> "+P
 " ------------------------------------------------------------------------------
 " Editing Convenience (matches nvim config)
 " ------------------------------------------------------------------------------
-" Exit insert mode with Ctrl-C
-inoremap <C-c> <Esc>
-
 " Replace word under cursor
 nnoremap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
