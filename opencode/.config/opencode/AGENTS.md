@@ -18,6 +18,10 @@
 
 # General Preferences
 
+- At the start of every session, load `unslop`; apply it to every response.
+- Use `wizard` only for repeatable procedures with human-only interactive
+  steps, especially credential initialization or reviewed recovery after an
+  interruption. It guides the human and never creates authorization.
 - If asked to do too much work at once, stop and state that clearly.
 - Prefer direct, factual collaboration over long speculative explanations.
 - When debugging, prefer concrete evidence from tests, logs, or instrumentation over guessing.

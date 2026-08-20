@@ -170,12 +170,11 @@ The tracked `env.sh` is installed by Stow. The example is not installed, and
 
 `~/.claude` is a mixed directory: Claude Code writes credentials, sessions,
 history, and caches there at runtime, and Stow links the tracked files
-alongside them. Only three entries come from this repository:
+alongside them. Only two entries come from this repository:
 
 ```text
 ~/.claude/CLAUDE.md     -> claude/.claude/CLAUDE.md
 ~/.claude/settings.json -> claude/.claude/settings.json
-~/.claude/skills        -> claude/.claude/skills
 ```
 
 Because `~/.claude` already exists as a real directory, Stow descends into it
@@ -183,9 +182,20 @@ and links only those entries; it does not replace the directory. Everything
 else there is local runtime state and is excluded by `.gitignore`.
 
 Machine-specific overrides belong in `~/.claude/settings.local.json`, which is
-a regular local file and is never stowed. Per-project instructions live in each
-repository as `CLAUDE.md`, symlinked to that repository's `AGENTS.md` so
-Claude Code and OpenCode read the same file.
+a regular local file and is never stowed. OpenCode is the authoritative harness:
+the global `CLAUDE.md` imports `~/.config/opencode/AGENTS.md`, while per-project
+`CLAUDE.md` files link to their repository's `AGENTS.md`. Claude-specific
+settings remain here only to support it as a fallback harness.
+
+### OpenCode configuration
+
+Global behavioral policy lives in `opencode/.config/opencode/AGENTS.md`.
+Reusable skills live under
+`opencode/.config/opencode/skills/<name>/SKILL.md` and are installed through the
+same Stow package at `~/.config/opencode/`. Keep adapted third-party skills with
+their source URL and license notice. Do not keep parallel Claude skill copies.
+OpenCode loads skills and configuration at startup, so restart it after changing
+these files.
 
 ### Other local files
 
