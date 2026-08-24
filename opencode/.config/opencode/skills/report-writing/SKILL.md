@@ -15,6 +15,23 @@ Define the audience, question, intended use, status, and authoritative evidence.
 For an existing report, inspect the complete source, outline or table of
 contents, generated evidence, and rendered artifact when available.
 
+For a substantial explanatory report, also define the reader's knowledge base:
+
+- record what subject matter, terminology, mathematics, and tools the report may
+  assume;
+- identify the reader's preferred coursework, references, or existing
+  documentation;
+- list unfamiliar or domain-specific methods that require motivation before
+  use;
+- distinguish standard sourced methods from custom diagnostics or extensions.
+
+Keep this reader model in a durable project or session artifact and reference
+it from the report plan and active state. Do not leave it only in conversation,
+where compaction or interruption can remove it. In the report, connect methods
+to the reader's known sources where they are introduced. If a necessary method
+is absent from that knowledge base, explain why it is needed, derive its role at
+the appropriate level, and cite an additional authoritative source.
+
 Choose and state one edit mode before writing:
 
 - **Patch:** the organizing model works and the change is local.
@@ -63,4 +80,5 @@ brief requires it.
 Confirm that the opening states the question, scope, status, and conclusion;
 terms precede their use; each important claim has one primary home; tables and
 figures answer the prose's comparisons; history does not compete with current
-truth; and the rendered artifact has actually been inspected.
+truth; method explanations match the durable reader knowledge base; and the
+rendered artifact has actually been inspected.
