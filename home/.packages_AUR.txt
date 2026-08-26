@@ -1,4 +1,5 @@
 google-chrome
+herdr-bin
 libpdfium-nojs
 python-polars-bin
 python-pptx

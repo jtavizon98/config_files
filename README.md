@@ -22,6 +22,7 @@ The application packages include:
 - `environment`
 - `fontconfig`
 - `gtk`
+- `herdr`
 - `hypr`
 - `matplotlib`
 - `mpv`
