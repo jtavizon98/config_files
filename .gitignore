@@ -5,6 +5,10 @@
 opencode/.config/opencode/package.json
 opencode/.config/opencode/bun.lock
 opencode/.config/opencode/package-lock.json
+herdr/.config/herdr/.plugins.lock
+herdr/.config/herdr/herdr*.log
+herdr/.config/herdr/session.json
+herdr/.config/herdr/sessions/
 
 # Local secrets
 qtile/.config/qtile/secrets.env

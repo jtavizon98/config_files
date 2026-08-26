@@ -1,0 +1,4 @@
+\.plugins\.lock$
+herdr.*\.log$
+session\.json$
+sessions(?:/.*)?$

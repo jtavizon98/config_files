@@ -46,7 +46,11 @@ repository into `~/.dotfiles`:
 ```bash
 git clone https://github.com/jtavizon98/config_files.git ~/.dotfiles
 cd ~/.dotfiles
+mkdir -p ~/.config/herdr
 ```
+
+The real Herdr directory must exist before stowing so Stow links only the
+tracked `config.toml` and leaves runtime state in `~/.config/herdr`.
 
 Preview the symlinks Stow will create:
 
@@ -197,6 +201,12 @@ same Stow package at `~/.config/opencode/`. Keep adapted third-party skills with
 their source URL and license notice. Do not keep parallel Claude skill copies.
 OpenCode loads skills and configuration at startup, so restart it after changing
 these files.
+
+### Herdr configuration
+
+The `herdr` package links only `~/.config/herdr/config.toml`. Herdr writes logs,
+session state, and plugin metadata beside that link at runtime; those files are
+local, ignored by Git and Stow, and must not be moved into repository history.
 
 ### Other local files
 
