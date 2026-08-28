@@ -10,9 +10,10 @@ where they should be installed relative to `$HOME`.
 For example, `nvim/.config/nvim/init.lua` is installed as
 `~/.config/nvim/init.lua`.
 
-The `home` package contains portable home-directory files, including `.bashrc`,
-`.vimrc`, `.bash_profile`, `.packages.txt`, and `.packages_AUR.txt`. Private
-machine files remain local and are not managed by Stow.
+The `home` package contains laptop home-directory files, including `.bashrc`,
+`.vimrc`, `.bash_profile`, `.packages.txt`, and `.packages_AUR.txt`. Do not Stow
+this package on remote hosts. Their machine-specific shell files remain local
+and are not managed by this repository.
 
 The application packages include:
 
@@ -64,6 +65,10 @@ Install all packages:
 stow -v -t "$HOME" */
 ```
 
+This full installation is intended for the laptop. On remote hosts, install
+only the explicitly required application packages and leave the `home` package
+unstowed.
+
 Install only selected packages:
 
 ```bash
@@ -95,6 +100,21 @@ paru -S --needed - < home/.packages_AUR.txt
 
 The package lists may contain packages that have been renamed or removed
 since they were created. Review any errors and update the lists as needed.
+
+## Environment Ownership
+
+On the Arch laptop, system executable paths come from `/etc/profile` and its
+`/etc/profile.d/` snippets. Alacritty starts Bash as a login shell so those
+distribution-maintained files remain authoritative. Do not copy their paths
+into `environment.d` or other user configuration.
+
+The laptop `.bashrc` adds only personal prefixes: `~/.local/bin`, `~/.scripts`,
+and `~/perl5/bin`. Files under `environment.d` are reserved for graphical
+session variables, not `PATH`.
+
+Remote hosts keep their own shell startup files outside this repository. Put
+host-wide user-space installations in that host's private shell configuration;
+keep virtual environments and toolchain setup owned by the relevant project.
 
 ## Updating Configurations
 
@@ -224,10 +244,9 @@ npm install --global opencode-ai@latest
 opencode --version
 ```
 
-Machine-specific or secret values should be kept in local files and loaded
-by the tracked configuration where possible. Private files should be regular
-files with mode `0600`; do not place them inside this repository or use
-`stow --adopt` on them.
+Machine-specific or secret values should be kept in local files. Private files
+should be regular files with mode `0600`; do not place them inside this
+repository or use `stow --adopt` on them.
 
 When migrating an existing installation, copy private file contents to their
 final paths before restowing, remove obsolete symlinks, then run `stow -n -v`

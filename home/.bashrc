@@ -1,4 +1,4 @@
-for path_entry in "$HOME/.local/bin" "$HOME/.scripts"; do
+for path_entry in "$HOME/.local/bin" "$HOME/.scripts" "$HOME/perl5/bin"; do
     case ":$PATH:" in
         *":$path_entry:"*) ;;
         *) PATH="$path_entry:$PATH" ;;
@@ -66,7 +66,6 @@ complete -cf sudo
 [ -r ~/.scripts/completions/ariadne.bash ] && . ~/.scripts/completions/ariadne.bash
 [ -r ~/.software/wyspr/completions/wyspr.bash ] && . ~/.software/wyspr/completions/wyspr.bash
 
-PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;

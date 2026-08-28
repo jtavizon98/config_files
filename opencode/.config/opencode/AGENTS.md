@@ -9,6 +9,20 @@
 - Never run commands with sudo yourself. If root is needed, print the
   exact command and ask the user to run it. Wait for confirmation.
 
+# Environment ownership
+
+- Diagnose package ownership, executable location, and process launch context
+  before changing `PATH` or installing another copy of a tool.
+- On the Arch laptop, distribution executable paths come from `/etc/profile`
+  and `/etc/profile.d/`. Do not duplicate those paths in dotfiles or shadow a
+  packaged tool to unblock one project.
+- Shared configuration may contain portable personal paths only. On hosts
+  without root access, additional user-space paths belong in private
+  machine-local shell configuration and must not leak to other machines.
+- Keep project dependencies and toolchain setup in the project's virtual
+  environment, wrapper, or documented setup script rather than global shell
+  startup files.
+
 # Code Style
 
 - Always strive for concise, simple solutions.
