@@ -69,7 +69,15 @@ For substantial collaborator-facing reports:
 3. Resolve its findings through the primary writing owner.
 4. Validate factual, numerical, and domain claims separately.
 5. Compile the source and inspect warnings.
-6. Use a visual reviewer on the rendered artifact, including dense pages.
+6. Rasterize the rendered artifact before visual delegation. Give the visual
+   reviewer contact sheets covering the whole artifact and individual
+   high-resolution images of changed pages, dense tables, figures, and suspected
+   defects. Never give the visual reviewer a PDF.
+
+After a correction, rerender and reinspect only the changed pages and adjacent
+pages unless pagination or document-wide styling changed. Use source, parsed
+text, and the copy reviewer for document structure and content; visual review
+is for rendered appearance.
 
 The copy reviewer does not replace source, physics, numerical, or visual
 validation. Short internal notes may skip independent copy review unless the
@@ -81,4 +89,4 @@ Confirm that the opening states the question, scope, status, and conclusion;
 terms precede their use; each important claim has one primary home; tables and
 figures answer the prose's comparisons; history does not compete with current
 truth; method explanations match the durable reader knowledge base; and the
-rendered artifact has actually been inspected.
+rendered artifact has actually been inspected through bounded raster images.
