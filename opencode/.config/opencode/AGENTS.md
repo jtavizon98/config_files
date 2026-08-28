@@ -1,8 +1,11 @@
 # Package management & permissions
 
 - Never use pip with --break-system-packages or --user.
-- For missing Python packages, print the exact pacman command and
-  ask the user to run it. Wait for confirmation before proceeding.
+- Ordinary pip installs are allowed inside an explicitly named virtual
+  environment when the user authorizes them. Verify that both Python and pip
+  resolve inside that environment before installing; never target system Python.
+- For missing system Python packages, print the exact pacman command and ask the
+  user to run it. Wait for confirmation before proceeding.
 - Never run commands with sudo yourself. If root is needed, print the
   exact command and ask the user to run it. Wait for confirmation.
 
@@ -38,36 +41,6 @@
 These are defaults, not limits. Judge the output, not the price tag.
 
 Do not let cost prevent using the right model for the job. Instead, use cheaper models to gather information, try clear implementation paths, and reduce ambiguity before moving work to a more expensive model.
-
-Definitions:
-
-- Availability means how cheap, plentiful, and subscription-safe the model is for repeated use.
-- Intelligence means how hard a problem can be handed to the model while still expecting a good unsupervised solution.
-- Physics means the ability to reason about physical plausibility, dimensional analysis, QCD, conservation constraints, HEP analysis logic, uncertainties, MC/data comparisons, and whether values are physically possible.
-- Image means the ability to understand screenshots, plots, figures, and visual diagnostics.
-- Taste is how nice it feels to talk to the model and have the model explain things.
-
-Model scores:
-
-| model             | availability | intelligence | physics | image | taste |
-| ----------------- | -----------: | -----------: | ------: | ----: | ----: |
-| GPT-5.6 Sol       |            2 |            8 |       6 |     8 |       |
-| GPT-5.6 Terra     |            3 |            8 |       5 |     8 |       |
-| GPT-5.6 Luna      |            4 |            8 |       4 |     8 |       |
-| GLM-5.2           |            4 |            8 |       4 |     8 |     9 |
-| DeepSeek V4 Flash |           10 |            7 |       3 |   N/A |     6 |
-| MiniMax M3        |            7 |            6 |       1 |     7 |     6 |
-
-Routing:
-
-| preferred agent | model             |
-| --------------- | ----------------- |
-| explore         | DeepSeek V4 Flash |
-| worker          | DeepSeek V4 Flash |
-| smart-worker    | GLM-5.2           |
-| copy-reviewer   | Kimi K2.6         |
-| primary agent   | GPT-5.6 Sol       |
-| vision-reader   | MiniMax M3        |
 
 Physics escalation:
 
