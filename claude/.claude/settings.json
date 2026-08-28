@@ -32,7 +32,7 @@
       }
     ]
   },
-  "theme": "light",
+  "theme": "auto",
   "preferredNotifChannel": "terminal_bell",
   "agentPushNotifEnabled": true
 }

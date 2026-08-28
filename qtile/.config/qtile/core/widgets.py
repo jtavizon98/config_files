@@ -204,7 +204,7 @@ def init_widgets():
             low_percentage=0.15,  # 0 < x < 1
             low_foreground=catppuccin["red"],
             notify_below=20,  # 0 < x < 100
-            notification_timeout=0,
+            notification_timeout=3000,
             padding=5,
             **decorations_group,
         ),
