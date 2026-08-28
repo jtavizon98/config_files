@@ -215,6 +215,15 @@ local, ignored by Git and Stow, and must not be moved into repository history.
 - OpenCode's `node_modules` and package metadata remain local.
 - The separate `~/.scripts` repository is not managed here.
 
+OpenCode autoupdates are disabled because replacing the running npm-installed
+binary can leave an incomplete package on NFS-backed home directories. Exit all
+OpenCode clients before upgrading it manually:
+
+```bash
+npm install --global opencode-ai@latest
+opencode --version
+```
+
 Machine-specific or secret values should be kept in local files and loaded
 by the tracked configuration where possible. Private files should be regular
 files with mode `0600`; do not place them inside this repository or use
