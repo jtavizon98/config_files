@@ -1,7 +1,4 @@
 {
-  "theme": "auto",
-  "model": "opus",
-  "preferredNotifChannel": "terminal_bell",
   "permissions": {
     "deny": [
       "Bash(sudo *)",
@@ -12,6 +9,7 @@
       "/home/jairot/.scripts"
     ]
   },
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -33,5 +31,8 @@
         ]
       }
     ]
-  }
+  },
+  "theme": "light",
+  "preferredNotifChannel": "terminal_bell",
+  "agentPushNotifEnabled": true
 }
