@@ -2,7 +2,7 @@
 description: Read-only copy and structural reviewer for reports, papers, technical notes, documentation, and other substantial written copy; aligns feedback with the user's explanatory scientific style.
 mode: subagent
 hidden: true
-model: opencode-go/kimi-k2.6
+model: opencode-go/glm-5.3-flash
 permission:
   edit: deny
   bash: deny
