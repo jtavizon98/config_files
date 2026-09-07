@@ -19,6 +19,7 @@ The application packages include:
 
 - `alacritty`
 - `claude`
+- `codex`
 - `dunst`
 - `environment`
 - `fontconfig`
@@ -211,6 +212,32 @@ a regular local file and is never stowed. OpenCode is the authoritative harness:
 the global `CLAUDE.md` imports `~/.config/opencode/AGENTS.md`, while per-project
 `CLAUDE.md` files link to their repository's `AGENTS.md`. Claude-specific
 settings remain here only to support it as a fallback harness.
+
+### Codex configuration
+
+The `codex` package owns portable subagent routing guidance in
+`codex/.codex/AGENTS.md`. It defines physics, intelligence, availability and
+taste, and guides the primary to choose a model and reasoning effort for each
+bounded task. Luna handles routine work, Sol handles implementation and
+reasoning, and Astra handles copy, taste and primary orchestration. Choices
+remain task-dependent; role names are not fixed.
+
+For the standard Codex home, preview and install with:
+
+```bash
+stow -n -v -t "$HOME" codex
+stow -v -t "$HOME" codex
+```
+
+When `~/.codex` is a symlink or `CODEX_HOME` names a different existing directory,
+link only the tracked `AGENTS.md` into the resolved Codex home. Inspect both
+paths first and preserve any existing instructions; do not overwrite a file
+or replace the Codex home directory. Keep `config.toml`, credentials, caches,
+plugins and session state local. This package does not manage them.
+
+Start a new Codex session to load changed global instructions. Existing custom
+agents may override explicit spawn choices; check their model and reasoning
+settings when a route does not match the policy.
 
 ### OpenCode configuration
 
