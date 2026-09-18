@@ -17,6 +17,7 @@ and are not managed by this repository.
 
 The application packages include:
 
+- `agent-skills`
 - `alacritty`
 - `claude`
 - `codex`
@@ -242,12 +243,41 @@ settings when a route does not match the policy.
 ### OpenCode configuration
 
 Global behavioral policy lives in `opencode/.config/opencode/AGENTS.md`.
-Reusable skills live under
-`opencode/.config/opencode/skills/<name>/SKILL.md` and are installed through the
-same Stow package at `~/.config/opencode/`. Keep adapted third-party skills with
-their source URL and license notice. Do not keep parallel Claude skill copies.
-OpenCode loads skills and configuration at startup, so restart it after changing
-these files.
+Reusable skills are owned by the shared `agent-skills` package below.
+Use a fresh OpenCode session to verify changed skill discovery; checkpoint
+active work before restarting any existing process.
+
+### Shared agent skills
+
+`agent-skills/.agents/skills/<name>/SKILL.md` is the single maintained source
+for personal skills used by Codex and OpenCode. Both clients discover
+`~/.agents/skills`. Install only this package to share skills without changing
+either client's provider, permissions, model, or runtime configuration:
+
+```bash
+stow -n -v -t "$HOME" agent-skills
+stow -v -t "$HOME" agent-skills
+```
+
+The package contains scientific-coding, relay, task-steward, grilling, unslop,
+report-writing, wizard, and frontend-design. Preserve third-party source
+attribution and bundled licenses. Keep project-specific skills in each
+repository's `.agents/skills`, and project policy, scientific evidence, private
+transcripts, host identities, and credentials outside this portable package.
+
+When migrating from the former OpenCode skill directory, inspect exact source
+and destination paths first. Preserve existing contents and local edits; move
+the skill directories with their resources into this package. Remove only
+verified obsolete installation links, including old Codex skill links and the
+report-writing link that points back to OpenCode. Do not leave duplicate skill
+names in several discovery roots. Preview Stow before installing and verify
+discovery in fresh processes of both clients without restarting live work.
+Rollback restores the prior source locations and exact links from the migration
+record; do not overwrite unrelated skills or runtime state.
+
+The three new workflows are instruction-only. Scientific coding scales its
+trace to the task. Relay and stewardship require assigned targets and existing
+authority; installing them does not start workers or approve actions.
 
 ### Herdr configuration
 
