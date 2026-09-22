@@ -218,10 +218,13 @@ settings remain here only to support it as a fallback harness.
 
 The `codex` package owns portable subagent routing guidance in
 `codex/.codex/AGENTS.md`. It defines physics, intelligence, availability and
-taste, and guides the primary to choose a model and reasoning effort for each
-bounded task. Luna handles routine work, Sol handles implementation and
-reasoning, and Astra handles copy, taste and primary orchestration. Choices
-remain task-dependent; role names are not fixed.
+taste, and guides the primary to decompose work and choose the highest-
+availability suitable model and effort. Its single numerical table covers
+Luna, Sol and Astra, with availability derived from Artificial Analysis cost
+per task and effort-specific intelligence and CritPt evidence. Missing data
+are explicit. Concrete bypass reasons, bounded escalation and a default limit
+on expensive delegations apply regardless of the primary model; role names
+do not assign models. The user's primary model and effort remain their choice.
 
 For the standard Codex home, preview and install with:
 

@@ -2,7 +2,8 @@
 description: Read-only copy and structural reviewer for reports, papers, technical notes, documentation, and other substantial written copy; aligns feedback with the user's explanatory scientific style.
 mode: subagent
 hidden: true
-model: opencode-go/glm-5.3-flash
+model: openai/gpt-6-astra
+variant: low
 permission:
   edit: deny
   bash: deny
@@ -10,7 +11,6 @@ permission:
   webfetch: deny
   websearch: deny
   todowrite: deny
-  skill: deny
   read:
     "*": allow
     "*.pdf": deny
