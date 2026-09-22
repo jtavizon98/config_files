@@ -246,7 +246,10 @@ settings when a route does not match the policy.
 ### OpenCode configuration
 
 Global behavioral policy lives in `opencode/.config/opencode/AGENTS.md`.
-Reusable skills are owned by the shared `agent-skills` package below.
+`opencode.jsonc`, the custom agents, and `cli.json` use native OpenCode V2
+configuration. `cli.json` owns portable terminal preferences; do not recreate
+the retired V1 `tui.json`. Reusable skills are owned by the shared
+`agent-skills` package below.
 Use a fresh OpenCode session to verify changed skill discovery; checkpoint
 active work before restarting any existing process.
 

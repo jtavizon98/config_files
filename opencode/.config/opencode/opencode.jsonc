@@ -1,43 +1,39 @@
 {
   "$schema": "https://opencode.ai/config.json",
 
-  "instructions": ["~/.config/opencode/AGENTS.md"],
-  "autoupdate": false,
+  "update": "disable",
 
+  "permissions": [
+    { "action": "shell", "resource": "sudo *", "effect": "deny" }
+  ],
 
-  "permission": {
-    "bash": {
-      "sudo *": "deny"
-    }
-  },
-
-  "agent": {
+  "agents": {
     "explore": {
       "model": "opencode-go/deepseek-v4.1-flash"
     },
     "plan": {
-      "permission": {
-        "task": {
-          "*": "deny",
-          "explore": "allow",
-          "copy-reviewer": "allow",
-          "vision-reader": "allow"
-        }
-      }
+      "permissions": [
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "explore", "effect": "allow" },
+        { "action": "subagent", "resource": "copy-reviewer", "effect": "allow" },
+        { "action": "subagent", "resource": "vision-reader", "effect": "allow" }
+      ]
     },
     "build": {
-      "permission": {
-        "task": {
-          "*": "deny",
-          "explore": "allow",
-          "copy-reviewer": "allow",
-          "worker": "allow",
-          "smart-worker": "allow",
-          "vision-reader": "allow"
-        }
-      }
+      "permissions": [
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "explore", "effect": "allow" },
+        { "action": "subagent", "resource": "copy-reviewer", "effect": "allow" },
+        { "action": "subagent", "resource": "worker", "effect": "allow" },
+        { "action": "subagent", "resource": "smart-worker", "effect": "allow" },
+        { "action": "subagent", "resource": "vision-reader", "effect": "allow" }
+      ]
     }
   },
 
-  "disabled_providers": ["opencode"]
+  "experimental": {
+    "policies": [
+      { "action": "provider.use", "resource": "opencode", "effect": "deny" }
+    ]
+  }
 }

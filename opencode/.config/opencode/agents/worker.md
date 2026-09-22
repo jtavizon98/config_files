@@ -1,10 +1,11 @@
 ---
 description: Default cost-efficient worker for clear implementation, mechanical edits, straightforward debugging, tests, and routine refactors.
 mode: subagent
-hidden: true
 model: opencode-go/deepseek-v4.1-flash
-permission:
-  task: deny
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
 ---
 
 You are a pragmatic implementation agent.

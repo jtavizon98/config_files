@@ -1,16 +1,26 @@
 ---
 description: Visual inspection agent for supplied raster images such as screenshots, plots, figures, and rendered document pages. Use only after image files are prepared; never delegate PDFs or document-content review.
 mode: subagent
-hidden: true
 model: opencode-go/glm-5.3-flash
-permission:
-  edit: deny
-  bash: deny
-  task: deny
-  read:
-    "*": allow
-    "*.pdf": deny
-    "*.PDF": deny
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: read
+    resource: "*.pdf"
+    effect: deny
+  - action: read
+    resource: "*.PDF"
+    effect: deny
 ---
 
 You are a visual inspection agent for already prepared raster images.

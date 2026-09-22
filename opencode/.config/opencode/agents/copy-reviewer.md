@@ -1,20 +1,35 @@
 ---
 description: Read-only copy and structural reviewer for reports, papers, technical notes, documentation, and other substantial written copy; aligns feedback with the user's explanatory scientific style.
 mode: subagent
-hidden: true
-model: openai/gpt-6-astra
-variant: low
-permission:
-  edit: deny
-  bash: deny
-  task: deny
-  webfetch: deny
-  websearch: deny
-  todowrite: deny
-  read:
-    "*": allow
-    "*.pdf": deny
-    "*.PDF": deny
+model: openai/gpt-6-astra#low
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: webfetch
+    resource: "*"
+    effect: deny
+  - action: websearch
+    resource: "*"
+    effect: deny
+  - action: skill
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: read
+    resource: "*.pdf"
+    effect: deny
+  - action: read
+    resource: "*.PDF"
+    effect: deny
 ---
 
 You are an independent copy and structural reviewer. Review the supplied text
