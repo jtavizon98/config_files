@@ -57,6 +57,20 @@ presentation when tables are generated or repeated.
 
 ## Write and review
 
+For a plotbook companion, establish coverage and a provisional argument early,
+but settle the figure comparisons and composed layout before final prose and page
+routes. Follow the project's plotting workflow. If writing exposes a missing
+comparison, reopen figure design and recheck affected claims/navigation. Identify
+both final report and plotbook versions and the plotbook page map; do not duplicate
+its catalogue as report prose.
+
+Assume the reader's domain knowledge, not participation in the working sessions.
+Explain the question, evidence and finding in the order needed to follow the
+reasoning. Introduce populations before ratios and methods before results. Use
+brief transitions or one worked example where needed; a concise companion should
+not grow into a tutorial by default. Give recurring conventions and lookup
+material clear homes. Neither page counts nor historical layouts are universal.
+
 Preserve observation, inference, decision, and proposal as distinct claims.
 After the complete draft exists, perform a coherence pass that can delete,
 merge, move, or rewrite material.
@@ -65,14 +79,33 @@ For substantial collaborator-facing reports:
 
 1. Use a diagnostic copy review before editing when the existing structure is
    suspect.
-2. Use the read-only `copy-reviewer` on the complete draft.
+2. Use the read-only `copy-reviewer` on the complete draft. Supply the reader
+   brief and artifact before the author's verdict. Ask it to reconstruct the
+   question, findings, supporting comparisons and limits without the session
+   narrative. Permit structural revision even when sentences are individually
+   correct. Check each material claim's route to the delivered evidence separately.
 3. Resolve its findings through the primary writing owner.
 4. Validate factual, numerical, and domain claims separately.
 5. Compile the source and inspect warnings.
 6. Rasterize the rendered artifact before visual delegation. Give the visual
-   reviewer contact sheets covering the whole artifact and individual
-   high-resolution images of changed pages, dense tables, figures, and suspected
-   defects. Never give the visual reviewer a PDF.
+   reviewer contact sheets covering the whole artifact and individual reading-size
+   images of every final page; add enlarged images of ambiguous details. The
+   writing owner supplies and checks this complete packet. Changed/adjacent/dense
+   page selections are for iterative rechecks. Never give the visual reviewer a PDF.
+
+Visual review must test reading tasks at final placement, not merely check for
+overlap. Contact sheets show organization, not small-text readability. Inspect
+individual final pages at the intended reading size, and enlarge ambiguous
+details. Record artifact identity, page, observed problem, reader impact and
+recheck result; mark features that cannot be judged as not assessed. Distinguish
+defects from optional preferences and verify reviewer allegations against the
+artifact. Agreement with the author or user is not evidence of inspection.
+
+Iterate figures and the complete document as needed. Split, consolidate or
+reorder when that improves the reader's task; preserve coverage. Colors, line
+styles and markers are context-dependent tools. Stop when material findings are
+resolved and reading tasks work, not after a fixed number of passes or speculative
+cosmetic changes. Escalate only decisions outside the confirmed contract.
 
 After a correction, rerender and reinspect only the changed pages and adjacent
 pages unless pagination or document-wide styling changed. Use source, parsed
