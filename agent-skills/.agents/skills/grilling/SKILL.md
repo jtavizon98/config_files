@@ -61,3 +61,13 @@ continue the interview.
 Plan confirmation does not replace a repository's authorization workflow,
 independent review, source verification, physics or numerical validation, or
 human domain approval.
+
+## Carry the contract into the artifact
+
+Before implementation and at substantial handbacks, check the planned or
+produced artifact against the confirmed audience, intended use, reference
+artifacts and prior contracts, exclusions, and concrete acceptance examples.
+Retrieve any relevant earlier standard before improvising a replacement. If a
+material requirement is missing or conflicts with the result, resolve that gap
+with the owner; do not treat a nearby deliverable as completion. This check does
+not add a questioning pass to genuinely routine work.

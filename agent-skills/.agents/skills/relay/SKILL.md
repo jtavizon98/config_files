@@ -76,9 +76,9 @@ new user direction faithfully and update the durable record; do not silently
 replace it with a more restrictive agent interpretation.
 
 Use verified event-driven communication when supported. When reliable unattended
-waits are unavailable, report that limitation and use an assigned capable
-steward or supported handoff. Do not claim continuous coverage from occasional
-polling or spawn a monitoring agent without an authorized assignment.
+waits are unavailable, report the gap and arrange a supported handoff or
+explicit recovery. Do not claim continuous coverage from occasional polling
+or spawn a monitoring agent without an authorized assignment.
 
 ## Delivery and closure
 

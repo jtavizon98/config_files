@@ -197,12 +197,16 @@ The tracked `env.sh` is installed by Stow. The example is not installed, and
 
 `~/.claude` is a mixed directory: Claude Code writes credentials, sessions,
 history, and caches there at runtime, and Stow links the tracked files
-alongside them. Only two entries come from this repository:
+alongside them. Only three entries come from this repository:
 
 ```text
 ~/.claude/CLAUDE.md     -> claude/.claude/CLAUDE.md
 ~/.claude/settings.json -> claude/.claude/settings.json
+~/.claude/skills        -> claude/.claude/skills -> agent-skills/.agents/skills
 ```
+
+The `skills` link exposes the shared agent skills to Claude Code without a
+second copy.
 
 Because `~/.claude` already exists as a real directory, Stow descends into it
 and links only those entries; it does not replace the directory. Everything
@@ -216,15 +220,15 @@ settings remain here only to support it as a fallback harness.
 
 ### Codex configuration
 
-The `codex` package owns portable subagent routing guidance in
-`codex/.codex/AGENTS.md`. It defines physics, intelligence, availability and
-taste, and guides the primary to decompose work and choose the highest-
-availability suitable model and effort. Its single numerical table covers
-Luna, Sol and Astra, with availability derived from Artificial Analysis cost
-per task and effort-specific intelligence and CritPt evidence. Missing data
-are explicit. Concrete bypass reasons, bounded escalation and a default limit
-on expensive delegations apply regardless of the primary model; role names
-do not assign models. The user's primary model and effort remain their choice.
+OpenCode's `opencode/.config/opencode/AGENTS.md` is the shared global instruction
+source for OpenCode and Codex. `codex/.codex/AGENTS.md` links to that source;
+both installed global paths resolve to the same file. The routing table keeps
+AA's effort-specific Index, CritPt and cost per task separate from Jairo's
+tentative taste/alignment scores. Each harness uses its own subagent and model
+controls; OpenCode agent defaults do not dictate Codex dispatch. Models a
+harness does not expose are reached through `opencode run` or `claude -p`, as
+described under the file's shell routes. The user's
+primary model and effort remain their choice.
 
 For the standard Codex home, preview and install with:
 
@@ -265,7 +269,7 @@ stow -n -v -t "$HOME" agent-skills
 stow -v -t "$HOME" agent-skills
 ```
 
-The package contains scientific-coding, relay, task-steward, grilling, unslop,
+The package contains scientific-coding, relay, grilling, unslop,
 report-writing, wizard, and frontend-design. Preserve third-party source
 attribution and bundled licenses. Keep project-specific skills in each
 repository's `.agents/skills`, and project policy, scientific evidence, private
@@ -281,9 +285,11 @@ discovery in fresh processes of both clients without restarting live work.
 Rollback restores the prior source locations and exact links from the migration
 record; do not overwrite unrelated skills or runtime state.
 
-The three new workflows are instruction-only. Scientific coding scales its
-trace to the task. Relay and stewardship require assigned targets and existing
-authority; installing them does not start workers or approve actions.
+These workflows are instruction-only. Scientific coding scales its trace to
+the task. Relay requires an assigned target and existing authority; installing
+it does not start workers or approve actions. The former standing unblocking
+steward role is retired in favor of scoped permissions, background completion
+handbacks, and relay escalation.
 
 ### Herdr configuration
 

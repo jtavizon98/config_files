@@ -28,6 +28,8 @@ claude/.claude/sessions/
 claude/.claude/session-env/
 claude/.claude/shell-snapshots/
 claude/.claude/cache/
+# Claude.ai skills synced at runtime through the ~/.claude/skills link
+agent-skills/.agents/skills/synced/
 claude/.claude/backups/
 claude/.claude/plugins/
 claude/.claude/todos/

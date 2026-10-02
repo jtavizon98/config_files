@@ -49,37 +49,113 @@
 
 # Model Routing
 
-These are defaults, not limits. Judge the output, not the price tag.
+These are starting points, not model assignments. Preserve the user's choice of
+primary model and effort. Decompose work before delegating; keep architecture,
+coordination, integration and final validation with the primary. Use the
+subagents and model/effort controls actually exposed by the active harness;
+when it has no native route to the selected model or effort, use the shell
+routes under Dispatch. OpenCode profiles may have configured model defaults;
+other harnesses need not recreate those profiles. Check effective routes when
+possible.
 
-Do not let cost prevent using the right model for the job. Instead, use cheaper models to gather information, try clear implementation paths, and reduce ambiguity before moving work to a more expensive model.
+Select the most available model and effort likely to complete each bounded task
+correctly. Availability means cost **per completed task**, repeated-use limits
+and current subscription headroom, not token price alone. Do not spend on broad
+unsolicited second opinions. Escalate directly when a concrete required
+capability is missing, or after one inconclusive or incorrect result; diagnose
+and escalate only the unresolved part. Avoid repeatedly retrying an inadequate
+route. Implementation around physics does not itself make a physics judgment.
+Use capable independent review for physics/numerical conclusions and retain the
+human domain owner's approval.
 
-Physics escalation:
+Reserve Astra for escalation with a named unresolved capability or a demonstrated
+failed review. Required independent review does not itself require Astra: use a
+separate capable Sol session at suitable effort. Check a configured delegate's
+model before dispatch rather than inheriting an Astra default. Respect current
+usage headroom; a usage-limit failure is not evidence of a capability failure.
 
-- DeepSeek V4 Flash may handle implementation around physics code.
-- Luna edges Flash on physics, but not by much; for stronger physics reasoning use Luna, GPT-5.6, or GLM-5.2 directly.
-- If Flash misses a physics issue while coding, do not ask Flash to check again. Escalate.
-- Use Luna/GPT/GLM for physics checks.
-- Use GPT-5.6 Sol for more complex physics reasoning.
+## Evidence for routing
 
-Escalation rules:
+Intelligence Index v4.3.2 (broad, noisy prior), CritPt (best available external
+physics proxy; currently under review), and weighted USD per Intelligence Index
+task (API benchmark cost, not subscription usage). Numbers are measured at the
+listed effort, not success probabilities for this task. `—` means no grounded
+local rating. Taste and alignment are tentative 0–10 judgments, distinct from
+AA scores. Alignment means fidelity to the intended outcome and existing
+decisions, including when clarification is needed. The local writing comparison
+had different review budgets; do not treat its ratings as controlled model
+performance measurements.
 
-- For physics work: physics > intelligence > availability.
-- For clear mechanical work: availability > intelligence.
-- Start cheap when the task is exploratory, reversible, or clearly specified.
-- Escalate when the cheap model is uncertain, inconsistent, or produces a mediocre solution.
-- Escalating costs less than doing bad work.
-- Use subagents according to these routing rules when they reduce cost, context, or risk.
+| Model               | Effort  | AA Index | CritPt | $/task | Taste | Alignment |
+| ------------------- | ------- | -------: | -----: | -----: | ----: | --------: |
+| DeepSeek V4.1 Flash | max     |       39 |    14% |   0.27 |     3 |         — |
+| GLM-5.3-Flash       | default |       42 |    15% |   0.25 |     4 |         — |
+| GPT-6 Luna          | low     |       22 |     3% | 0.0045 |     — |         — |
+| GPT-6 Luna          | medium  |       30 |    11% |   0.02 |     — |         — |
+| GPT-6 Luna          | high    |       33 |    15% |   0.03 |     — |         — |
+| GPT-6 Luna          | xhigh   |       35 |    17% |   0.04 |     — |         — |
+| GPT-6 Luna          | max     |       38 |    19% |   0.07 |     — |         — |
+| GPT-6.1 Sol         | low     |       42 |    25% |   0.13 |     — |         — |
+| GPT-6.1 Sol         | medium  |       48 |    28% |   0.21 |     — |         — |
+| GPT-6.1 Sol         | high    |       50 |    30% |   0.32 |     — |         — |
+| GPT-6.1 Sol         | xhigh   |       51 |    32% |   0.39 |     7 |         5 |
+| GPT-6 Astra         | low     |       46 |    26% |   0.82 |     — |         — |
+| GPT-6 Astra         | medium  |       50 |    29% |   1.54 |     8 |       7.5 |
+| GPT-6 Astra         | high    |       51 |    29% |   1.73 |     — |         — |
+| Claude Sonnet 5.5   | medium  |       41 |    17% |   0.59 |     — |         — |
+| Claude Sonnet 5.5   | high    |       47 |    25% |   1.08 |     — |         — |
+| Claude Sonnet 5.5   | xhigh   |       52 |    31% |   2.74 |     — |         — |
+| Claude Opus 5.5     | low     |       42 |    18% |   0.55 |     — |         — |
+| Claude Opus 5.5     | medium  |       51 |    28% |   1.34 |     — |         — |
+| Claude Opus 5.5     | high    |       54 |    31% |   1.82 |     — |         — |
+| Claude Opus 5.5     | xhigh   |       56 |    32% |   3.46 |     9 |         — |
 
-Subagent routing:
+AA sources: [Flash/GLM](https://artificialanalysis.ai/models/comparisons/deepseek-v4-1-flash-vs-glm-5-3-flash),
+[Astra low/high](https://artificialanalysis.ai/models/comparisons/gpt-6-astra-low-vs-gpt-6-astra-high),
+[Astra medium](https://artificialanalysis.ai/models/gpt-6-astra-medium).
+[release/efforts](https://artificialanalysis.ai/models/releases/gpt-6-1-sol),
+[low/medium](https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-low-vs-gpt-6-1-sol-medium),
+[medium/high](https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-medium-vs-gpt-6-1-sol-high),
+[xhigh/max](https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-xhigh-vs-gpt-6-1-sol),
+[Luna](https://artificialanalysis.ai/models/releases/gpt-6-luna),
+[Opus](https://artificialanalysis.ai/models/releases/claude-opus-5-5),
+[Sonnet](https://artificialanalysis.ai/models/releases/claude-sonnet-5-5),
+[Fable](https://artificialanalysis.ai/models/releases/claude-fable-5-1);
+CritPt from the pairwise variant comparisons. Claude rows are AA's adaptive
+reasoning variants; AA has not scored Sonnet 5.5 low.
 
-1. Decompose multi-step work into small, independently verifiable tasks before delegating.
-2. Use explore for repository discovery, and worker by default for all bounded implementation, trivial mechanical work, debugging, refactoring, and tests.
-3. Use smart-worker for a precisely scoped physics, statistical, mathematical, numerical, or algorithmic correctness question when that reasoning is central to the task. It may be used directly only when the prompt names the concrete capability required; prior worker failure is not mandatory.
-4. Do not send an entire large task to smart-worker. Keep architecture, coordination, integration, and final validation in the primary agent.
-5. Delegate each task to the least expensive agent reasonably likely to complete it correctly on the first attempt.
-6. For general implementation and debugging, use worker first. Escalate after one inconclusive, inconsistent, incomplete, or incorrect result rather than repeatedly retrying worker.
-7. Do not use smart-worker merely because work is difficult or non-trivial, for broad reviews, or for unsolicited second opinions.
-8. Default to at most one smart-worker call per user request. Make another only for a distinct critical blocker, not merely another component to review.
-9. Use copy-reviewer for independent structural and prose feedback on
-   substantial reports or written copy. It is read-only and does not replace
-   factual, physics, numerical, or visual review.
+## Dispatch
+
+- For substantial explanatory writing, start with a model at suitable effort
+  and a confirmed reader brief. Reserve higher taste models for a specific
+  unresolved writing problem after the first review, not as an automatic prose
+  route. Use `grilling` where project policy requires it and check the artifact
+  against the decision record.
+- For routine discovery and bounded implementation, choose an inexpensive
+  suitable worker. For bounded
+  source/API reviews and physics, statistical, mathematical or numerical reasoning,
+  use use a model at the effort needed for the concrete question. Escalate only
+  the unresolved part if that route is inadequate. CritPt is a prior, not
+  domain validation.
+- Keep a separate read-only copy-reviewer for independent structural and prose
+  feedback on substantial copy. Use a capable copy-reviewer by default and
+  reserve higher taste models for a documented structural/voice issue that
+  review cannot resolve. Copy review does not replace source, physics or visual
+  review.
+- Give each delegate a self-contained brief with owned paths, evidence,
+  constraints and verification. Select effort explicitly where the harness
+  allows it, and report inherited or overridden routes honestly.
+
+### Shell routes
+
+Any harness can reach models it does not expose natively through the
+non-interactive CLIs. Native subagents remain the first choice.
+
+- OpenAI and OpenCode Go models: `opencode run -m '<provider>/<model>#<effort>'
+  '<brief>'`, for example `openai/gpt-6.1-sol#high` or
+  `opencode-go/glm-5.3-flash`. List current IDs with `opencode models`.
+- Claude models: `claude -p --model <model> --effort <level> '<brief>'`.
+- Run from the delegate's owned working directory. The shell delegate gets the
+  same brief, ownership and permission rules as a native subagent; it is a
+  separate agent, so report its route and treat its output as delegate
+  evidence, not verified fact.
