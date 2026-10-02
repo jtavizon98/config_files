@@ -70,7 +70,8 @@ human domain owner's approval.
 
 Reserve Astra for escalation with a named unresolved capability or a demonstrated
 failed review. Required independent review does not itself require Astra: use a
-separate capable Sol session at suitable effort. Check a configured delegate's
+separate session of any model at the Sol xhigh / Opus high-xhigh tier (CritPt
+31-32% below), preferably from a different family than the author. Check a configured delegate's
 model before dispatch rather than inheriting an Astra default. Respect current
 usage headroom; a usage-limit failure is not evidence of a capability failure.
 
@@ -134,7 +135,7 @@ reasoning variants; AA has not scored Sonnet 5.5 low.
 - For routine discovery and bounded implementation, choose an inexpensive
   suitable worker. For bounded
   source/API reviews and physics, statistical, mathematical or numerical reasoning,
-  use use a model at the effort needed for the concrete question. Escalate only
+  use a model at the effort needed for the concrete question. Escalate only
   the unresolved part if that route is inadequate. CritPt is a prior, not
   domain validation.
 - Keep a separate read-only copy-reviewer for independent structural and prose

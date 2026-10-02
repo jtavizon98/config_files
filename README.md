@@ -297,6 +297,13 @@ The `herdr` package links only `~/.config/herdr/config.toml`. Herdr writes logs,
 session state, and plugin metadata beside that link at runtime; those files are
 local, ignored by Git and Stow, and must not be moved into repository history.
 
+Agent integrations are installed per host with `herdr integration install
+<agent>` and stay local. For Claude Code, Herdr writes
+`~/.claude/hooks/herdr-agent-state.sh` and a `SessionStart` hook with an
+absolute path; reinstalling re-adds that exact entry. Keep the hook in the
+untracked `~/.claude/settings.local.json`, not the tracked `settings.json`, and
+move it there if an install or update adds it to `settings.json`.
+
 ### Other local files
 
 - Wyspr's `secrets.env` remains local and should use mode `0600`.
