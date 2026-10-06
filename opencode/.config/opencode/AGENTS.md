@@ -52,9 +52,11 @@
 These are starting points, not model assignments. Preserve the user's choice of
 primary model and effort. Decompose work before delegating; keep architecture,
 coordination, integration and final validation with the primary. Use the
-subagents and model/effort controls actually exposed by the active harness;
-when it has no native route to the selected model or effort, use the shell
-routes under Dispatch. OpenCode profiles may have configured model defaults;
+subagents and model/effort controls actually exposed by the active harness.
+Never shell out to a model the harness exposes natively: when a native model
+fits but its effort cannot be set, use it at the effort the harness gives and
+report that. The shell routes under Dispatch are a fallback for models outside
+the harness. OpenCode profiles may have configured model defaults;
 other harnesses need not recreate those profiles. Check effective routes when
 possible.
 
@@ -71,7 +73,8 @@ human domain owner's approval.
 Reserve Astra for escalation with a named unresolved capability or a demonstrated
 failed review. Required independent review does not itself require Astra: use a
 separate session of any model at the Sol xhigh / Opus high-xhigh tier (CritPt
-31-32% below), preferably from a different family than the author. Check a configured delegate's
+31-32% below). Prefer a different family than the author when one is
+available, including for the final review pass. Check a configured delegate's
 model before dispatch rather than inheriting an Astra default. Respect current
 usage headroom; a usage-limit failure is not evidence of a capability failure.
 
@@ -99,17 +102,17 @@ performance measurements.
 | GPT-6.1 Sol         | low     |       42 |    25% |   0.13 |     — |         — |
 | GPT-6.1 Sol         | medium  |       48 |    28% |   0.21 |     — |         — |
 | GPT-6.1 Sol         | high    |       50 |    30% |   0.32 |     — |         — |
-| GPT-6.1 Sol         | xhigh   |       51 |    32% |   0.39 |     7 |         5 |
+| GPT-6.1 Sol         | xhigh   |       51 |    32% |   0.39 |     5 |         5 |
 | GPT-6 Astra         | low     |       46 |    26% |   0.82 |     — |         — |
-| GPT-6 Astra         | medium  |       50 |    29% |   1.54 |     8 |       7.5 |
+| GPT-6 Astra         | medium  |       50 |    29% |   1.54 |     7 |       7.5 |
 | GPT-6 Astra         | high    |       51 |    29% |   1.73 |     — |         — |
 | Claude Sonnet 5.5   | medium  |       41 |    17% |   0.59 |     — |         — |
 | Claude Sonnet 5.5   | high    |       47 |    25% |   1.08 |     — |         — |
 | Claude Sonnet 5.5   | xhigh   |       52 |    31% |   2.74 |     — |         — |
 | Claude Opus 5.5     | low     |       42 |    18% |   0.55 |     — |         — |
 | Claude Opus 5.5     | medium  |       51 |    28% |   1.34 |     — |         — |
-| Claude Opus 5.5     | high    |       54 |    31% |   1.82 |     — |         — |
-| Claude Opus 5.5     | xhigh   |       56 |    32% |   3.46 |     9 |         — |
+| Claude Opus 5.5     | high    |       54 |    31% |   1.82 |     9 |         8 |
+| Claude Opus 5.5     | xhigh   |       56 |    32% |   3.46 |     — |         — |
 
 AA sources: [Flash/GLM](https://artificialanalysis.ai/models/comparisons/deepseek-v4-1-flash-vs-glm-5-3-flash),
 [Astra low/high](https://artificialanalysis.ai/models/comparisons/gpt-6-astra-low-vs-gpt-6-astra-high),
@@ -145,17 +148,22 @@ reasoning variants; AA has not scored Sonnet 5.5 low.
   review.
 - Give each delegate a self-contained brief with owned paths, evidence,
   constraints and verification. Select effort explicitly where the harness
-  allows it, and report inherited or overridden routes honestly.
+  allows it, and report inherited or overridden routes honestly. An effort the
+  harness cannot set is not a reason to leave it.
 
 ### Shell routes
 
-Any harness can reach models it does not expose natively through the
-non-interactive CLIs. Native subagents remain the first choice.
+Native subagents are the default. Use a shell route only to reach a model the
+harness does not expose: a cheaper suitable model from another family, a
+different-family reviewer, or a named capability no native model has. Leaving
+the harness costs little, but never use it to change the effort of a model
+available natively.
 
 - OpenAI and OpenCode Go models: `opencode run -m '<provider>/<model>#<effort>'
   '<brief>'`, for example `openai/gpt-6.1-sol#high` or
   `opencode-go/glm-5.3-flash`. List current IDs with `opencode models`.
-- Claude models: `claude -p --model <model> --effort <level> '<brief>'`.
+- Claude models from a non-Claude harness:
+  `claude -p --model <model> --effort <level> '<brief>'`.
 - Run from the delegate's owned working directory. The shell delegate gets the
   same brief, ownership and permission rules as a native subagent; it is a
   separate agent, so report its route and treat its output as delegate
