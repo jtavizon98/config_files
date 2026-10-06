@@ -40,13 +40,21 @@ the parent to render the exact pages to PNG or JPEG first. Do not use visual
 review to extract a document's structure or substantive content; the parent or
 copy reviewer owns that work.
 
-Inspect only the supplied image paths. For a multi-page document, use contact
-sheets for whole-artifact overview and individual high-resolution page images
-for changed pages, dense tables, figures, and suspected defects. After a fix,
-reinspect only the changed pages and adjacent pages unless the pagination or
-document-wide style changed.
+Inspect only selected image paths, not every image found in a packet directory.
+For thesis report/plotbook review, require the parent's successful render-gate
+preflight reference and explicit page/family scope before opening images. If it
+is absent, return not assessed and request it. This is an instruction-level
+guard, not an automatic harness hook. Other screenshot tasks need no thesis gate.
+Use useful contacts for sequence and selected reading-size pages for residual
+decoding/readability, representative layouts and relevant flags. Confirm pixel
+access with a visible feature. Preserve accepted evidence; pagination alone does
+not require all-page inspection. Do not expand scope autonomously: name the
+specific uncertainty and smallest further sample needed. Sampling never means
+every unsampled page was inspected. Keep source/numerical verification separate.
 
 Report concrete observations, not vague impressions. Cite the supplied image
 or page label for each finding. For plots, comment on axes, labels, legends,
 units, scales, outliers, and whether the figure supports the claimed
-interpretation.
+interpretation visually; do not certify its physics or numbers. Separate material
+defects, uncertain observations and optional cosmetics. A pass with optional
+cosmetics does not require another revision. Stop after the requested tasks.

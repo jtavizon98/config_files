@@ -12,8 +12,9 @@ that workflow is authoritative when it conflicts with this skill.
 ## Start with the whole artifact
 
 Define the audience, question, intended use, status, and authoritative evidence.
-For an existing report, inspect the complete source, outline or table of
-contents, generated evidence, and rendered artifact when available.
+For an existing report, establish the whole argument from source, contents,
+evidence and prior review. During local revisions reuse that orientation and
+inspect affected source/pages rather than rereading unchanged material.
 
 For a substantial explanatory report, also define the reader's knowledge base:
 
@@ -87,15 +88,18 @@ For substantial collaborator-facing reports:
 3. Resolve its findings through the primary writing owner.
 4. Validate factual, numerical, and domain claims separately.
 5. Compile the source and inspect warnings.
-6. Rasterize the rendered artifact before visual delegation. Give the visual
-   reviewer contact sheets covering the whole artifact and individual reading-size
-   images of every final page; add enlarged images of ambiguous details. The
-   writing owner supplies and checks this complete packet. Changed/adjacent/dense
-   page selections are for iterative rechecks. Never give the visual reviewer a PDF.
+6. Run available programmatic render checks over the complete artifact before
+   visual delegation. Account for applicable build, geometry, printed-value,
+   inventory and navigation checks; absent checks are not assessed. Follow the
+   project's preflight contract when provided. Select residual reading tasks on
+   new/changed layouts, family representatives and relevant flags. Use an explicit
+   economy image-capable route, not an inherited expensive primary model. Supply
+   selected reading-size rasters, useful contacts and ambiguous-detail crops,
+   never a PDF. Final delivery does not require another exhaustive page pass.
 
 Visual review must test reading tasks at final placement, not merely check for
 overlap. Contact sheets show organization, not small-text readability. Inspect
-individual final pages at the intended reading size, and enlarge ambiguous
+selected final pages at the intended reading size, and enlarge ambiguous
 details. Record artifact identity, page, observed problem, reader impact and
 recheck result; mark features that cannot be judged as not assessed. Distinguish
 defects from optional preferences and verify reviewer allegations against the
@@ -107,8 +111,11 @@ styles and markers are context-dependent tools. Stop when material findings are
 resolved and reading tasks work, not after a fixed number of passes or speculative
 cosmetic changes. Escalate only decisions outside the confirmed contract.
 
-After a correction, rerender and reinspect only the changed pages and adjacent
-pages unless pagination or document-wide styling changed. Use source, parsed
+Preserve accepted evidence after corrections. Repagination reopens navigation
+and composition, not every page's readability; global styling changes reopen
+affected layout families. Record sampling without claiming unseen pages were
+inspected. Escalate model or scope only for a concrete unresolved problem. A GO
+with optional cosmetics stays GO. Use source, parsed
 text, and the copy reviewer for document structure and content; visual review
 is for rendered appearance.
 

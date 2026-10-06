@@ -40,6 +40,11 @@
 - Prefer direct, factual collaboration over long speculative explanations.
 - When debugging, prefer concrete evidence from tests, logs, or instrumentation
   over guessing.
+- When changing workflows, skills or policy, trace the owning rule through its
+  consumers: root instructions, skills, harness defaults, enforcing code/tests
+  and human guides. Remove superseded requirements, test omitted-input and
+  recovery behavior, and distinguish automatic enforcement from prose or explicit
+  preflight. Follow the project's workflow-change procedure where one exists.
 
 # Workspace Layout
 
@@ -129,6 +134,16 @@ CritPt from the pairwise variant comparisons. Claude rows are AA's adaptive
 reasoning variants; AA has not scored Sonnet 5.5 low.
 
 ## Dispatch
+
+- Appearance-only review starts with an explicit economy image-capable route,
+  after applicable programmatic checks. Use selected new/changed layouts,
+  representative families and relevant flags; preserve accepted evidence.
+  Final status or repagination does not mandate exhaustive inspection. Never
+  inherit Opus/Astra for visual work merely from the primary. Expensive escalation
+  needs a named unresolved finding or capability gap; quota failure is not one.
+  Follow the project's visual preflight and record model, effort visibility,
+  pages, task and stopping condition. Do not repeat source/numerical audits in
+  appearance review or reopen accepted work for optional cosmetics.
 
 - For substantial explanatory writing, start with a model at suitable effort
   and a confirmed reader brief. Reserve higher taste models for a specific
