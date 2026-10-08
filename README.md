@@ -218,6 +218,18 @@ the global `CLAUDE.md` imports `~/.config/opencode/AGENTS.md`, while per-project
 `CLAUDE.md` files link to their repository's `AGENTS.md`. Claude-specific
 settings remain here only to support it as a fallback harness.
 
+Claude context defaults limit successful shell output to 12,000 inline
+characters; larger output remains available in the file Claude Code names.
+Opus 5.5 uses a 400,000-token auto-compact window in `modelSettings`, alongside
+its existing high effort. Other models keep their own compaction defaults.
+Per-model windows require Claude Code 2.1.288 or later. `/context` shows the
+effective window; a CLI or environment override can take precedence.
+
+Use a fresh session to verify the window and settings validation. To roll back,
+remove `bashOutputMaxChars` and Opus's `autoCompactWindow` keys, preserving its
+`effortLevel`; this restores the harness defaults. For a one-launch window
+override, use `claude --autocompact auto`.
+
 ### Codex configuration
 
 OpenCode's `opencode/.config/opencode/AGENTS.md` is the shared global instruction
