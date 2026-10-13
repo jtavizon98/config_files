@@ -341,6 +341,28 @@ final paths before restowing, remove obsolete symlinks, then run `stow -n -v`
 before applying `stow -v`. Generated `__pycache__` directories should not be
 stowed.
 
+## Known Issues
+
+### Wayland screen sharing freezes after one frame
+
+As of 2026-10-13, screen sharing under the Qtile Wayland session shows only the
+first frame, in both Zoom and Firefox. `xdg-desktop-portal-wlr` 0.8.4
+(installed 2026-09-11, replacing 0.8.2) captures one frame and never requests
+another PipeWire buffer. Run it with `-l TRACE -r` to see this. The Arch wiki
+setup is already in place: the Qtile config imports `XDG_CURRENT_DESKTOP` and
+`WAYLAND_DISPLAY` into the systemd user environment, the local
+`~/.config/xdg-desktop-portal/portals.conf` routes ScreenCast to `wlr`, and
+`slurp` selects the monitor. Upstream reports:
+<https://github.com/void-linux/void-packages/issues/62609>.
+
+Until a newer `xdg-desktop-portal-wlr` ships, share from another device.
+Downgrading to 0.8.2 is the reported workaround but is not applied here. After
+an update, retest at <https://mozilla.github.io/webrtc-landing/gum_test.html>.
+
+Zoom keeps `enableWaylandShare=true` in the untracked
+`~/.config/zoomus.conf`. Do not launch Zoom with `XDG_CURRENT_DESKTOP=GNOME`;
+it crashes because the GNOME settings-daemon schemas are not installed.
+
 ## License
 
 These configurations are shared as a commons. You are free to study, adapt,
