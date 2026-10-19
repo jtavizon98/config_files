@@ -38,6 +38,7 @@ The application packages include:
 - `rofi`
 - `tmux`
 - `tzync`
+- `wireplumber`
 - `wyspr`
 - `zathura`
 
@@ -340,6 +341,33 @@ When migrating an existing installation, copy private file contents to their
 final paths before restowing, remove obsolete symlinks, then run `stow -n -v`
 before applying `stow -v`. Generated `__pycache__` directories should not be
 stowed.
+
+## Audio routing
+
+The `wireplumber` package uses WirePlumber 0.5 configuration to prefer connected
+Bluetooth outputs over USB monitor audio and HDMI. Other outputs remain
+available as fallbacks; microphone priorities and audio formats are unchanged.
+
+Install and reload the routing policy (audio may briefly stop):
+
+```bash
+stow -n -v -t "$HOME" wireplumber
+stow -v -t "$HOME" wireplumber
+systemctl --user restart wireplumber
+```
+
+A manually selected output overrides these priorities. To return playback to
+automatic selection without changing the default microphone, run
+`wpctl clear-default 0`.
+
+The package also disables `bluetooth.autoswitch-to-headset-profile`. With it
+enabled, WirePlumber does not re-select the profile when A2DP connects after
+HFP, so headphones stay on the call profile until reconnected. Recording no
+longer switches headphones to HFP; select it manually for calls:
+
+```bash
+pactl set-card-profile bluez_card.<address> headset-head-unit
+```
 
 ## Known Issues
 
