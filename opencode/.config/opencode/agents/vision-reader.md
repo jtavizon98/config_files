@@ -1,7 +1,7 @@
 ---
 description: Visual inspection agent for supplied raster images such as screenshots, plots, figures, and rendered document pages. Use only after image files are prepared; never delegate PDFs or document-content review.
 mode: subagent
-model: opencode-go/glm-5.3-flash
+model: openai/gpt-6-luna
 permissions:
   - action: edit
     resource: "*"

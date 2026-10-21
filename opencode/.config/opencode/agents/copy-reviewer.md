@@ -1,7 +1,7 @@
 ---
 description: Read-only copy and structural reviewer for reports, papers, technical notes, documentation, and other substantial written copy; aligns feedback with the user's explanatory scientific style.
 mode: subagent
-model: openai/gpt-6.1-sol#high
+model: openai/gpt-6-astra#medium
 permissions:
   - action: edit
     resource: "*"

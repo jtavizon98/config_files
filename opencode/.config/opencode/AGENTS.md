@@ -75,13 +75,32 @@ route. Implementation around physics does not itself make a physics judgment.
 Use capable independent review for physics/numerical conclusions and retain the
 human domain owner's approval.
 
-Reserve Astra for escalation with a named unresolved capability or a demonstrated
-failed review. Required independent review does not itself require Astra: use a
+Except for the user-selected copy-reviewer default below, reserve Astra for
+escalation with a named unresolved capability or a demonstrated failed review.
+Required independent review does not itself require Astra: use a
 separate session of any model at the Sol xhigh / Opus high-xhigh tier (CritPt
 31-32% below). Prefer a different family than the author when one is
 available, including for the final review pass. Check a configured delegate's
 model before dispatch rather than inheriting an Astra default. Respect current
 usage headroom; a usage-limit failure is not evidence of a capability failure.
+
+## OpenCode subagent defaults
+
+OpenCode Go is no longer subscribed. Use the OpenAI subscription routes below,
+not the cancelled provider, for default delegation. These defaults do not change
+the primary session's model or effort.
+
+| Agent | Model | Effort |
+| --- | --- | --- |
+| explore | `openai/gpt-6-luna` | Provider default; no override |
+| vision-reader | `openai/gpt-6-luna` | Provider default; no override |
+| worker | `openai/gpt-6.1-sol` | Provider default; no override |
+| copy-reviewer | `openai/gpt-6-astra#medium` | medium |
+
+The configured defaults apply when dispatch omits a model override. Do not
+invent a fixed effort or benchmark score for the provider default. Copy review
+is the user's explicit Astra exception, not a reason to use Astra for routine
+implementation, visual inspection, or physics review.
 
 ## Evidence for routing
 
@@ -97,8 +116,6 @@ performance measurements.
 
 | Model               | Effort  | AA Index | CritPt | $/task | Taste | Alignment |
 | ------------------- | ------- | -------: | -----: | -----: | ----: | --------: |
-| DeepSeek V4.1 Flash | max     |       39 |    14% |   0.27 |     3 |         — |
-| GLM-5.3-Flash       | default |       42 |    15% |   0.25 |     4 |         — |
 | GPT-6 Luna          | low     |       22 |     3% | 0.0045 |     — |         — |
 | GPT-6 Luna          | medium  |       30 |    11% |   0.02 |     — |         — |
 | GPT-6 Luna          | high    |       33 |    15% |   0.03 |     — |         — |
@@ -119,8 +136,7 @@ performance measurements.
 | Claude Opus 5.5     | high    |       54 |    31% |   1.82 |     9 |         8 |
 | Claude Opus 5.5     | xhigh   |       56 |    32% |   3.46 |     — |         — |
 
-AA sources: [Flash/GLM](https://artificialanalysis.ai/models/comparisons/deepseek-v4-1-flash-vs-glm-5-3-flash),
-[Astra low/high](https://artificialanalysis.ai/models/comparisons/gpt-6-astra-low-vs-gpt-6-astra-high),
+AA sources: [Astra low/high](https://artificialanalysis.ai/models/comparisons/gpt-6-astra-low-vs-gpt-6-astra-high),
 [Astra medium](https://artificialanalysis.ai/models/gpt-6-astra-medium).
 [release/efforts](https://artificialanalysis.ai/models/releases/gpt-6-1-sol),
 [low/medium](https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-low-vs-gpt-6-1-sol-medium),
@@ -157,13 +173,13 @@ reasoning variants; AA has not scored Sonnet 5.5 low.
   the unresolved part if that route is inadequate. CritPt is a prior, not
   domain validation.
 - Keep a separate read-only copy-reviewer for independent structural and prose
-  feedback on substantial copy. Use a capable copy-reviewer by default and
-  reserve higher taste models for a documented structural/voice issue that
-  review cannot resolve. Copy review does not replace source, physics or visual
-  review.
+  feedback on substantial copy. Use the configured copy-reviewer default;
+  further escalation needs a documented structural/voice issue that review
+  cannot resolve. Copy review does not replace source, physics or visual review.
 - Give each delegate a self-contained brief with owned paths, evidence,
-  constraints and verification. Select effort explicitly where the harness
-  allows it, and report inherited or overridden routes honestly. An effort the
+  constraints and verification. Preserve the user's provider-default effort
+  choices above; otherwise select effort explicitly where the harness allows
+  it. Report default, inherited or overridden routes honestly. An effort the
   harness cannot set is not a reason to leave it.
 
 ### Shell routes
@@ -174,9 +190,9 @@ different-family reviewer, or a named capability no native model has. Leaving
 the harness costs little, but never use it to change the effort of a model
 available natively.
 
-- OpenAI and OpenCode Go models: `opencode run -m '<provider>/<model>#<effort>'
-  '<brief>'`, for example `openai/gpt-6.1-sol#high` or
-  `opencode-go/glm-5.3-flash`. List current IDs with `opencode models`.
+- OpenAI subscription models: `opencode run -m 'openai/<model>#<effort>'
+  '<brief>'`, for example `openai/gpt-6.1-sol#high`. Omit `#<effort>` when
+  using the provider default. List current IDs with `opencode models`.
 - Claude models from a non-Claude harness:
   `claude -p --model <model> --effort <level> '<brief>'`.
 - Run from the delegate's owned working directory. The shell delegate gets the

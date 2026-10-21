@@ -269,6 +269,14 @@ the retired V1 `tui.json`. Reusable skills are owned by the shared
 Use a fresh OpenCode session to verify changed skill discovery; checkpoint
 active work before restarting any existing process.
 
+Subagent model defaults use the OpenAI subscription; OpenCode Go is no longer
+subscribed. The role/effort table in `opencode/.config/opencode/AGENTS.md` owns
+the routing policy, and `opencode.jsonc` plus `agents/*.md` configure it. A model
+without a `#variant` deliberately uses provider-default effort. Run `opencode
+reload` if the running service still reports old routes, then validate with
+`opencode debug agents`; existing child sessions retain their stored model
+selection. No primary model or credential changes are needed.
+
 ### Shared agent skills
 
 `agent-skills/.agents/skills/<name>/SKILL.md` is the single maintained source

@@ -1,7 +1,7 @@
 ---
 description: General worker for bounded implementation, debugging, verification and concrete correctness questions; the primary may select a capable model for the task.
 mode: subagent
-model: opencode-go/deepseek-v4.1-flash
+model: openai/gpt-6.1-sol
 permissions:
   - action: subagent
     resource: "*"
@@ -34,7 +34,7 @@ Avoid:
 - unnecessary helpers or abstractions
 - presenting unreviewed physics judgments as final conclusions
 
-The configured model is a cheap default, not a claim of physics competence. If
-the requested judgment exceeds your effective model's capability or the prompt
+The configured model is a bounded-task default, not a claim of physics competence.
+If the requested judgment exceeds your effective model's capability or the prompt
 lacks essential evidence, return the precise gap to the primary. Do not promote
 an entire multi-phase task because one part needs stronger reasoning.
