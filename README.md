@@ -290,7 +290,7 @@ stow -n -v -t "$HOME" agent-skills
 stow -v -t "$HOME" agent-skills
 ```
 
-The package contains scientific-coding, relay, grilling, unslop,
+The package contains scientific-coding, relay, unblocker, grilling, unslop,
 report-writing, wizard, and frontend-design. Preserve third-party source
 attribution and bundled licenses. Keep project-specific skills in each
 repository's `.agents/skills`, and project policy, scientific evidence, private
@@ -308,9 +308,9 @@ record; do not overwrite unrelated skills or runtime state.
 
 These workflows are instruction-only. Scientific coding scales its trace to
 the task. Relay requires an assigned target and existing authority; installing
-it does not start workers or approve actions. The former standing unblocking
-steward role is retired in favor of scoped permissions, background completion
-handbacks, and relay escalation.
+it does not start workers or approve actions. Unblocker keeps an assigned
+executor moving through Herdr waits and routes questions to the relay; it
+replaces the retired task-steward skill and never answers permission prompts.
 
 ### Herdr configuration
 

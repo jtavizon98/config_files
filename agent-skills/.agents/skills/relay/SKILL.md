@@ -75,10 +75,12 @@ source requires that responsibility and authority in the assignment. Communicate
 new user direction faithfully and update the durable record; do not silently
 replace it with a more restrictive agent interpretation.
 
-Use verified event-driven communication when supported. When reliable unattended
-waits are unavailable, report the gap and arrange a supported handoff or
-explicit recovery. Do not claim continuous coverage from occasional polling
-or spawn a monitoring agent without an authorized assignment.
+Use verified event-driven communication when supported. Keeping an executor
+moving while the user is away belongs to an assigned unblocker (`unblocker`
+skill); without one, report the coverage gap. After a harness outage or
+recovery, prompt the unblocker to recheck the executor; the prompt wakes it.
+Do not claim continuous coverage from occasional polling or spawn a
+monitoring agent without an authorized assignment.
 
 ## Delivery and closure
 
