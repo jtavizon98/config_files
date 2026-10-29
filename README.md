@@ -280,9 +280,16 @@ selection. No primary model or credential changes are needed.
 
 ### Shared agent skills
 
-`agent-skills/.agents/skills/<name>/SKILL.md` is the single maintained source
-for personal skills used by Codex and OpenCode. Both clients discover
-`~/.agents/skills`. Install only this package to share skills without changing
+`agent-skills/.agents/skills/` is the skill directory used by Codex and
+OpenCode (both discover `~/.agents/skills`) and, through `~/.claude/skills`,
+Claude Code. The shared scientific skills live in the public
+[scientific-agents](https://github.com/jtavizon98/scientific-agents) repository,
+checked out as the submodule `agent-skills/.agents/scientific-agents`; each
+entry in `skills/` is a relative link `../scientific-agents/skills/<name>`.
+Edit, commit and push those skills in the submodule, then commit the new
+submodule revision here. `relay` and `frontend-design` stay in this package.
+Clone with `git clone --recurse-submodules`, or run `git submodule update
+--init` in an existing clone. Install only this package to share skills without changing
 either client's provider, permissions, model, or runtime configuration:
 
 ```bash
@@ -290,8 +297,9 @@ stow -n -v -t "$HOME" agent-skills
 stow -v -t "$HOME" agent-skills
 ```
 
-The package contains scientific-coding, relay, unblocker, grilling, unslop,
-report-writing, wizard, and frontend-design. Preserve third-party source
+Stow also links `~/.agents/scientific-agents`. Do not link `skills/.trash` or
+`skills/synced` (Claude's account copies) into `~/.agents/skills`; if a preview
+shows them, create the remaining links by hand. Preserve third-party source
 attribution and bundled licenses. Keep project-specific skills in each
 repository's `.agents/skills`, and project policy, scientific evidence, private
 transcripts, host identities, and credentials outside this portable package.
@@ -310,7 +318,7 @@ These workflows are instruction-only. Scientific coding scales its trace to
 the task. Relay requires an assigned target and existing authority; installing
 it does not start workers or approve actions. Unblocker keeps an assigned
 executor moving through Herdr waits and routes questions to the relay; it
-replaces the retired task-steward skill and never answers permission prompts.
+never answers permission prompts.
 
 ### Herdr configuration
 

@@ -1,0 +1,3 @@
+[submodule "agent-skills/.agents/scientific-agents"]
+	path = agent-skills/.agents/scientific-agents
+	url = https://github.com/jtavizon98/scientific-agents.git
