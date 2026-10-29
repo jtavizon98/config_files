@@ -46,8 +46,10 @@ At a checkpoint, stop notice, blocker, or completion claim:
    concrete next action and verify acknowledgement or actual resumption.
 4. Resolve routine sequencing and bounded technical ambiguity using the agreed
    objective, source hierarchy, and existing decisions.
-5. Escalate a material unresolved choice or missing authority with the exact
-   blocker, evidence, recommended action, and the decision needed from the user.
+5. Escalate a material unresolved choice or missing authority as a call in the
+   `ketchup` skill's format: the exact blocker, your pick, the evidence, the
+   risk and "unknown" for missing facts. Number the calls and word each so
+   "yes" accepts the pick.
 
 Do not make the user manage ordinary worker sequencing. A technical review
 failure requires correction; it is not automatically a request for new user
