@@ -72,15 +72,15 @@ unsolicited second opinions. Escalate directly when a concrete required
 capability is missing, or after one inconclusive or incorrect result; diagnose
 and escalate only the unresolved part. Avoid repeatedly retrying an inadequate
 route. Implementation around physics does not itself make a physics judgment.
-Use capable independent review for physics/numerical conclusions and retain the
-human domain owner's approval.
+Review physics/numerical conclusions with the `council` skill (one strong model
+per reachable provider) and retain the human domain owner's approval.
 
-Except for the user-selected copy-reviewer default below, reserve Astra for
+Except for OpenCode's copy-reviewer subagent default below, reserve Astra for
 escalation with a named unresolved capability or a demonstrated failed review.
-Required independent review does not itself require Astra: use a
-separate session of any model at the Sol xhigh / Opus high-xhigh tier (CritPt
-31-32% below). Prefer a different family than the author when one is
-available, including for the final review pass. Check a configured delegate's
+Required independent review does not itself require Astra: the council
+members are Opus high and Sol xhigh (CritPt 31-32% below), one fresh session
+each, including for the final review pass. Report an unreachable provider
+instead of substituting another model. Check a configured delegate's
 model before dispatch rather than inheriting an Astra default. Respect current
 usage headroom; a usage-limit failure is not evidence of a capability failure.
 
@@ -98,9 +98,11 @@ the primary session's model or effort.
 | copy-reviewer | `openai/gpt-6-astra#medium` | medium |
 
 The configured defaults apply when dispatch omits a model override. Do not
-invent a fixed effort or benchmark score for the provider default. Copy review
-is the user's explicit Astra exception, not a reason to use Astra for routine
-implementation, visual inspection, or physics review.
+invent a fixed effort or benchmark score for the provider default. The
+copy-reviewer row is the user's explicit Astra exception for that OpenCode
+subagent only; it does not set copy review in other harnesses, and it is not a
+reason to use Astra for routine implementation, visual inspection, or physics
+review.
 
 ## Evidence for routing
 
@@ -128,6 +130,11 @@ performance measurements.
 | GPT-6 Astra         | low     |       46 |    26% |   0.82 |     — |         — |
 | GPT-6 Astra         | medium  |       50 |    29% |   1.54 |     7 |       7.5 |
 | GPT-6 Astra         | high    |       51 |    29% |   1.73 |     — |         — |
+| Claude Haiku 5.5    | low     |       29 |      — |   0.02 |     — |         — |
+| Claude Haiku 5.5    | medium  |       34 |    13% |   0.05 |     — |         — |
+| Claude Haiku 5.5    | high    |       38 |    19% |   0.08 |     — |         — |
+| Claude Haiku 5.5    | xhigh   |       41 |    23% |   0.12 |     — |         — |
+| Claude Haiku 5.5    | max     |       43 |    19% |   0.21 |     — |         — |
 | Claude Sonnet 5.5   | medium  |       41 |    17% |   0.59 |     — |         — |
 | Claude Sonnet 5.5   | high    |       47 |    25% |   1.08 |     — |         — |
 | Claude Sonnet 5.5   | xhigh   |       52 |    31% |   2.74 |     — |         — |
@@ -145,9 +152,17 @@ AA sources: [Astra low/high](https://artificialanalysis.ai/models/comparisons/gp
 [Luna](https://artificialanalysis.ai/models/releases/gpt-6-luna),
 [Opus](https://artificialanalysis.ai/models/releases/claude-opus-5-5),
 [Sonnet](https://artificialanalysis.ai/models/releases/claude-sonnet-5-5),
-[Fable](https://artificialanalysis.ai/models/releases/claude-fable-5-1);
+[Fable](https://artificialanalysis.ai/models/releases/claude-fable-5-1),
+[Haiku](https://artificialanalysis.ai/models/releases/claude-haiku-5-5),
+[Haiku medium](https://artificialanalysis.ai/models/comparisons/claude-haiku-5-5-medium-vs-gpt-6-luna),
+[Haiku high/xhigh](https://artificialanalysis.ai/models/comparisons/claude-haiku-5-5-high-vs-claude-haiku-5-5-xhigh),
+[Haiku max/xhigh](https://artificialanalysis.ai/models/comparisons/claude-haiku-5-5-vs-claude-haiku-5-5-xhigh);
 CritPt from the pairwise variant comparisons. Claude rows are AA's adaptive
 reasoning variants; AA has not scored Sonnet 5.5 low.
+Haiku 5.5 figures were checked on 2026-10-08; low-effort CritPt was not
+verified from the accessible AA pages. Taste and alignment remain unrated.
+Anthropic released [Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5)
+on 2026-10-07 with adjustable effort.
 
 ## Dispatch
 
@@ -171,11 +186,13 @@ reasoning variants; AA has not scored Sonnet 5.5 low.
   source/API reviews and physics, statistical, mathematical or numerical reasoning,
   use a model at the effort needed for the concrete question. Escalate only
   the unresolved part if that route is inadequate. CritPt is a prior, not
-  domain validation.
+  domain validation. A physics or numerical conclusion still goes to the
+  council before it is relied on.
 - Keep a separate read-only copy-reviewer for independent structural and prose
-  feedback on substantial copy. Use the configured copy-reviewer default;
-  further escalation needs a documented structural/voice issue that review
-  cannot resolve. Copy review does not replace source, physics or visual review.
+  feedback on substantial copy. In OpenCode use the configured copy-reviewer
+  subagent; in other harnesses use a capable native reviewer. Further
+  escalation needs a documented structural/voice issue that review cannot
+  resolve. Copy review does not replace source, physics or visual review.
 - Give each delegate a self-contained brief with owned paths, evidence,
   constraints and verification. Preserve the user's provider-default effort
   choices above; otherwise select effort explicitly where the harness allows
